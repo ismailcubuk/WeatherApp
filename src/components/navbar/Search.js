@@ -10,7 +10,7 @@ export default function Search() {
                 id="search"
                 name="search"
             />
-            <FontAwesomeIcon icon={faSearchLocation} className='h-4/6' />
+            {/* <FontAwesomeIcon icon={faSearchLocation} className='h-4/6' /> */}
         </div>
 
     )
