@@ -1,27 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import { useContext } from 'react';
+import NavbarContext from '../../contexts/NavbarContext';
 import Degree from './Degree'
 import Search from './Search'
 
-function Navbar() {
-    const [localTime, setLocalTime] = useState('');
+function Navbar({time}) {
+    const {localTime} = useContext(NavbarContext);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const date = new Date();
-            const options = {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-            };
-            const localTime = date.toLocaleTimeString([], options);
-            setLocalTime(localTime);
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, []);
-    
     return (
         <div className='items-center flex flex-col pl-20 pr-20'>
             <div className='border-b-4 flex justify-between border-stone-300 h-20 w-full' >
