@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState,useEffect } from "react";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   const [weather, setWeather] = useState()
@@ -35,7 +36,8 @@ function App() {
 console.log(weather,longitude,latitude);
 
   return (
-    <div>
+    <div className="flex-col flex items-center min-w-[920px]">
+      <Navbar/>
       <div>
       long = {longitude}
       </div>
