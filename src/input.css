@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
+.weather-line{
+    @apply flex justify-between m-2 p-2 border-b-2 border-gray-500
+}
 @tailwind utilities;
+
