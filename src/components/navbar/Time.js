@@ -1,8 +1,6 @@
-import { createContext, useState,useEffect } from "react";
+import React, { useEffect,useState } from 'react'
 
-const NavbarContext = createContext();
-
-export const NavbarContextprovider = ({children}) => {
+export default function Time() {
     const [localTime, setLocalTime] = useState('');
     useEffect(() => {
         const interval = setInterval(() => {
@@ -13,21 +11,14 @@ export const NavbarContextprovider = ({children}) => {
                 day: 'numeric',
                 hour: 'numeric',
                 minute: 'numeric',
+                second: 'numeric',
             };
             const localTime = date.toLocaleTimeString([], options);
             setLocalTime(localTime);
         }, 1000);
         return () => clearInterval(interval);
     }, []);
-
-    const data = {
-        localTime
-    }
-    return(
-        <NavbarContext.Provider value={data}>
-            {children}
-        </NavbarContext.Provider>
+    return (
+        <div>{localTime}</div>
     )
 }
-
-export default NavbarContext;

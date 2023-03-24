@@ -1,10 +1,11 @@
 import { useContext } from 'react';
-import NavbarContext from '../../contexts/NavbarContext';
+import SearchContextContext from '../../contexts/SearchContext';
 import Degree from './Degree'
 import Search from './Search'
+import Time from './Time';
 
 function Navbar({time}) {
-    const {localTime} = useContext(NavbarContext);
+    const {localTime} = useContext(SearchContextContext);
 
     return (
         <div className='items-center flex flex-col w-full'>
@@ -30,10 +31,10 @@ function Navbar({time}) {
                     <button>Ankara</button>
                 </div>
                 <div>
-                    {localTime}
+                    <Time/>
+                    {/* {localTime} */}
                 </div>
             </div>
-
         </div>
     )
 }
