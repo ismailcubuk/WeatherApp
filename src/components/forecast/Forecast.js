@@ -1,20 +1,18 @@
 import React, { useContext } from 'react'
-import SearchContext from '../../contexts/SearchContext'
+import WeatherIconContext from '../../contexts/WeatherIconContext'
 
 function Forecast() {
-  const { weatherIcon } = useContext(SearchContext);
+  const { weatherIcon, weather } = useContext(WeatherIconContext);
   return (
     <div className='flex flex-col w-5/12'>
       <div className='border-blue-700 border-2 h-4/6'>
-        img
-        {/* <img src={`https://openweathermap.org/img/wn/${locations.weather[0].icon}@2x.png`} alt="" /> */}
-
-
 
         {
-         weatherIcon
+          weatherIcon
         }
-
+        {/* {
+          weather
+        } */}
 
 
       </div>

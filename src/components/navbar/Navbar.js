@@ -1,11 +1,8 @@
-import { useContext } from 'react';
-import SearchContextContext from '../../contexts/SearchContext';
 import Degree from './Degree'
 import Search from './Search'
 import Time from './Time';
 
-function Navbar({time}) {
-    const {localTime} = useContext(SearchContextContext);
+function Navbar() {
 
     return (
         <div className='items-center flex flex-col w-full'>
