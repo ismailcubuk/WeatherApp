@@ -6,7 +6,7 @@ export const FetchApiContextprovider = ({ children }) => {
     const [getWeather, setGetWeather] = useState()
 
     useEffect(() => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=ankara&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=istanbul&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`)
         // fetch(`https://api.openweathermap.org/data/2.5/forecast?q=ankara&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`)
             .then(response => response.json())
             .then(data => setGetWeather(data))
@@ -32,9 +32,9 @@ export const FetchApiContextprovider = ({ children }) => {
     const pressure = getWeather ? getWeather.main.pressure : '';
 
 
-    const visibility = getWeather ? getWeather.visibility : '';
+    const visibility = getWeather ? Math.round(getWeather.visibility/1000) : '';
 
-    const windSpeed = getWeather ? getWeather.wind.speed*10 : '';
+    const windSpeed = getWeather ? Math.round(getWeather.wind.speed*10) : '';
 
 
     const dewPoint = Math.round((237.7 * (Math.log(humidity/100) + ((17.27 * temp) / (237.7 + temp)))) / (17.27 - Math.log(humidity/100) - ((17.27 * temp) / (237.7 + temp))));
