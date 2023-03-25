@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import '../src/input.css'
-import { WeatherIconContextprovider } from './contexts/WeatherIconContext';
-import { WeatherApiContextprovider } from './contexts/WeatherApiContext';
+import { FetchApiContextprovider } from './middleware/FetchApi';
+import { FetchLocationprovider } from './middleware/FetchLocation';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <WeatherApiContextprovider>
-        <WeatherIconContextprovider>
+    <FetchLocationprovider>
+        <FetchApiContextprovider>
             <App />
-        </WeatherIconContextprovider>
-    </WeatherApiContextprovider>
+        </FetchApiContextprovider>
+    </FetchLocationprovider>
+
 );

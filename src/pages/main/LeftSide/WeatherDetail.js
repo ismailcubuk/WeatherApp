@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import FetchApiContext from '../../../middleware/FetchApi'
 
 function WeatherDetail() {
+    const { city, country, feelsLike, tempMin, tempMax, humidity, pressure, visibility,windSpeed,dewPoint } = useContext(FetchApiContext);
     return (
         <div className='pl-10 pr-10'>
-            <p className='text-sm font-semibold'>Weather today in Amsterdam,Netherlands</p>
+            <p className='text-sm font-semibold'>Weather today in {city} , {country}</p>
 
             <div className='flex justify-between'>
                 <div>
-                    <p className='text-4xl'>3</p>
+                    <div className='text-4xl font-semibold'> {feelsLike}&deg; </div>
                     <p className='text-sm text-gray-500'>feels like</p>
                 </div>
                 <div>
@@ -27,7 +29,7 @@ function WeatherDetail() {
                             </p>
                         </div>
                         <p>
-                            --/
+                            {tempMin}/{tempMax}
                         </p>
                     </div>
                     <div className='weather-line'>
@@ -40,7 +42,7 @@ function WeatherDetail() {
                             </p>
                         </div>
                         <p>
-                            81%
+                            {humidity}%
                         </p>
                     </div>
                     <div className='weather-line'>
@@ -53,10 +55,13 @@ function WeatherDetail() {
                             </p>
                         </div>
                         <p>
-                            81%
+                            {pressure}mb
                         </p>
                     </div>
-                    <div className='weather-line'>
+                    
+                </div>
+                <div className='border-2 border-black w-6/12'>
+                <div className='weather-line'>
                         <div className='flex'>
                             <div>
                                 img
@@ -66,11 +71,9 @@ function WeatherDetail() {
                             </p>
                         </div>
                         <p>
-                            81%
+                            {visibility}
                         </p>
                     </div>
-                </div>
-                <div className='border-2 border-black w-6/12'>
                     <div className='weather-line'>
                         <div className='flex'>
                             <div>
@@ -81,7 +84,7 @@ function WeatherDetail() {
                             </p>
                         </div>
                         <p>
-                            81%
+                            {windSpeed}km/h
                         </p>
                     </div>
                     <div className='weather-line'>
@@ -90,37 +93,11 @@ function WeatherDetail() {
                                 img
                             </div>
                             <p>
-                                drw poine
+                                Dew Point
                             </p>
                         </div>
                         <p>
-                            81%
-                        </p>
-                    </div>
-                    <div className='weather-line'>
-                        <div className='flex'>
-                            <div>
-                                img
-                            </div>
-                            <p>
-                                UV index
-                            </p>
-                        </div>
-                        <p>
-                            81%
-                        </p>
-                    </div>
-                    <div className='weather-line'>
-                        <div className='flex'>
-                            <div>
-                                img
-                            </div>
-                            <p>
-                                Moon Phasis
-                            </p>
-                        </div>
-                        <p>
-                            81%
+                            {dewPoint}&deg;
                         </p>
                     </div>
                 </div>

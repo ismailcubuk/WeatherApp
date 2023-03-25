@@ -1,14 +1,14 @@
 
 import { useState, useEffect } from "react";
-import CurrentWeather from "./components/current-weather/CurrentWeather";
-import WeatherDetail from "./components/current-weather/WeatherDetail";
-import Forecast from "./components/forecast/Forecast";
 import Navbar from "./components/navbar/Navbar";
+import CurrentWeather from "./pages/main/LeftSide/CurrentWeather";
+import WeatherDetail from "./pages/main/LeftSide/WeatherDetail";
+import Forecast from "./pages/main/RightSide/Forecast";
 
 function App() {
- 
 
-  
+
+
 
 
 
@@ -20,10 +20,10 @@ function App() {
       <Navbar />
       <div className="flex border-black border-2">
         <div className=" border-red-600 border-2 w-7/12">
-          <CurrentWeather />
+          <CurrentWeather/>
           <WeatherDetail />
         </div>
-        <Forecast />
+        <Forecast/>
       </div>
     </div>
   );

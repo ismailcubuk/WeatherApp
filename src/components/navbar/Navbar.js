@@ -1,6 +1,6 @@
 import Degree from './Degree'
 import Search from './Search'
-import Time from './Time';
+import Time from '../../services/Utils/dateFormat/Time';
 
 function Navbar() {
 
