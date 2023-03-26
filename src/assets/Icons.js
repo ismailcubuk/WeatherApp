@@ -21,32 +21,34 @@ export default function Icons() {
     const { weatherIcon } = useContext(FetchApiContext);
     const [image, setImage] = useState(null)
 
-useEffect(() => {
-    const icons = {
-        "01d": clearDay,
-        "01n": clearNight,
-        "02d": cloudyDay,
-        "02n": cloudyNight,
-        "03d": cloudy,
-        "03n": cloudy,
-        "04d": overcastDay,
-        "04n": overcastNight,
-        "09d": rain,
-        "09n": rain,
-        "10d": rainDay,
-        "10n": rainNight,
-        "11d": thunderstromsDay,
-        "11n": thunderstromsNight,
-        "13d": snowDay,
-        "13n": snowNight,
-        "50d": mist,
-        "50n": mist
-    };
+    useEffect(() => {
+        const icons = {
+            "01d": clearDay,
+            "01n": clearNight,
+            "02d": cloudyDay,
+            "02n": cloudyNight,
+            "03d": cloudy,
+            "03n": cloudy,
+            "04d": overcastDay,
+            "04n": overcastNight,
+            "09d": rain,
+            "09n": rain,
+            "10d": rainDay,
+            "10n": rainNight,
+            "11d": thunderstromsDay,
+            "11n": thunderstromsNight,
+            "13d": snowDay,
+            "13n": snowNight,
+            "50d": mist,
+            "50n": mist
+        };
 
-    setImage(icons[weatherIcon]);
-}, [weatherIcon]);
+        setImage(icons[weatherIcon]);
+    }, [weatherIcon]);
 
     return (
-            <img src={image} className='border-2 w-44 h-4/6 border-green-500' />
+        <div className='w-3/6 border-2 h-full flex items-center justify-center border-none'>
+            <img src={image} className='border-2 h-full border-none' />
+        </div>
     )
 }

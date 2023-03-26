@@ -3,12 +3,26 @@
 
 @tailwind utilities;
 
-.weather-line{
+.weather-line {
     @apply flex justify-between m-2 p-2 border-b-2 border-gray-500
 }
-.icons{
+
+.icons {
     @apply w-6 h-6 mr-2
 }
-.box{
+
+.box {
     @apply border-2 border-blue-700
+}
+
+.images {
+    @apply border-2 w-full h-full border-gray-600 border-r-0 border-t-0 border-b-0 border-l-2
+}
+
+.weather-text {
+    @apply border-2 w-full h-full border-gray-600 border-r-0 border-t-0 border-b-0 border-l-2 pl-2
+}
+
+.weather-grid {
+    @apply grid grid-flow-col grid-cols-4
 }

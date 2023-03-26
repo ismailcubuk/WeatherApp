@@ -52,24 +52,25 @@ export default function Forecast() {
         setDay4(icons[forecastIcons[3]]);
     }, [forecastIcons]);
     const forecastDays = [day1, day2, day3, day4];
+
     return (
-        <div className='border-red-500 h-2/6 border-2'>
-            <p>Today's forecast for {city}, {country} </p>
-            <div className='border-blue-500 border-2 '>
-                <div className=' grid grid-flow-col grid-cols-4'>
-                    {days.map(x => { return <div >{x} </div> })}
+        <div className=' w-3/6' >
+            <div>
+            {/* <div className=' pl-2'>Today's forecast for {city}, {country} </div> */}
+                <div className='weather-grid'>
+                    {days.map(x => { return <div className='weather-text' >{x} </div> })}
                 </div>
-                <div className=' grid grid-flow-col grid-cols-4'>
+                <div className='weather-grid'>
                     {forecastTemp.map(x => {
-                        return <div>
-                            {x}
+                        return <div className='weather-text'>
+                            <div className='text-3xl'>{x}&deg;</div>
                         </div>
                     })}
                 </div>
-                <div className=' grid grid-flow-col grid-cols-4'>
+                <div className='weather-grid '>
                     {forecastDays.map(x => {
-                        return <div className='flex items-center justify-center'>
-                            <img src={x} className='border-2 w-44 h-4/6 border-green-500' />
+                        return <div className='images'>
+                            <img src={x}/>
                         </div>
                     })}
                 </div>

@@ -10,7 +10,7 @@ import devPointIcon from '../../../assets/icons/dew-point.svg'
 function WeatherDetail() {
     const { city, country, feelsLike, tempMin, tempMax, humidity, pressure, visibility, windSpeed, dewPoint } = useContext(FetchApiContext);
     return (
-        <div className='pl-10 pr-10 border-2 border-black'>
+        <div className='w-3/6' >
             <p className='text-sm font-semibold'>Weather today in {city} , {country}</p>
 
             <div className='flex justify-between'>
@@ -24,7 +24,7 @@ function WeatherDetail() {
             </div>
 
             <div className='flex flex-row'>
-                <div className='border-2 border-blue-600 w-6/12'>
+                <div className=' w-6/12'>
                     <div className='weather-line'>
                         <div className='flex'>
                             <div>
@@ -66,7 +66,7 @@ function WeatherDetail() {
                     </div>
 
                 </div>
-                <div className='border-2 border-black w-6/12'>
+                <div className='w-6/12'>
                     <div className='weather-line'>
                         <div className='flex'>
                             <div>

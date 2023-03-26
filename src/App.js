@@ -7,15 +7,18 @@ import Images from "./pages/main/RightSide/Images";
 
 function App() {
   return (
-    <div className="h-screen border-2 border-green-700">
-      <Navbar />
-      <div className="flex border-black border-2 ">
-        <div className=" border-red-600 border-2 w-7/12">
-          <CurrentWeather />
-          <WeatherDetail />
+    <div className="h-screen ">
+
+      <div className="h-full">
+        <div className="h-1/6">
+          <Navbar />
         </div>
-        <div className="w-5/12 border-2 h-full border-red-500">
-          <Icons/>
+        <div className=" flex gap-4 h-3/6">
+          <CurrentWeather />
+          <Icons />
+        </div>
+        <div className=" flex gap-4 h-2/6">
+          <WeatherDetail />
           <Forecast />
         </div>
       </div>

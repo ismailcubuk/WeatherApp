@@ -5,7 +5,7 @@ import Time from '../../services/Utils/dateFormat/Time';
 function Navbar() {
 
     return (
-        <div className='items-center flex flex-col w-full'>
+        <div>
             <div className='border-b-4 flex justify-between border-stone-300 h-20 w-full' >
                 <div className='flex items-center justify-between font-bold text-xl w-4/12 min-w-[550px]'>
                     <button className='h-3/6 px-3' >Today</button>

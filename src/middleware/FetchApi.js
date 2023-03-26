@@ -7,7 +7,7 @@ export const FetchApiContextprovider = ({ children }) => {
     const [getForecast, setGetForecast] = useState([])
 
     useEffect(() => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=ankara&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=izmir&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`)
             .then(response => response.json())
             .then(data => setGetWeather(data))
             .catch(error => console.error(error));
@@ -44,7 +44,7 @@ export const FetchApiContextprovider = ({ children }) => {
 
     useEffect(() => {
         fetch(
-            "https://api.openweathermap.org/data/2.5/forecast?q=ankara&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric"
+            "https://api.openweathermap.org/data/2.5/forecast?q=izmir&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric"
         )
             .then((response) => response.json())
             .then((data) => {
