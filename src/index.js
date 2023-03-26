@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <FetchLocationprovider>
         <FetchApiContextprovider>
-            <App />
+                <App />
         </FetchApiContextprovider>
     </FetchLocationprovider>
 

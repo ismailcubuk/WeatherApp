@@ -47,9 +47,6 @@ useEffect(() => {
 }, [weatherIcon]);
 
     return (
-        <div className='w-full border-2 border-black flex items-center justify-center'>
-            <img src={image} className='max-h-96' />
-
-        </div>
+            <img src={image} className='border-2 w-44 h-4/6 border-green-500' />
     )
 }

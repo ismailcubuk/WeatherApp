@@ -1,10 +1,14 @@
 @tailwind base;
 @tailwind components;
+
+@tailwind utilities;
+
 .weather-line{
     @apply flex justify-between m-2 p-2 border-b-2 border-gray-500
 }
 .icons{
     @apply w-6 h-6 mr-2
 }
-@tailwind utilities;
-
+.box{
+    @apply border-2 border-blue-700
+}

@@ -10,7 +10,7 @@ import devPointIcon from '../../../assets/icons/dew-point.svg'
 function WeatherDetail() {
     const { city, country, feelsLike, tempMin, tempMax, humidity, pressure, visibility, windSpeed, dewPoint } = useContext(FetchApiContext);
     return (
-        <div className='pl-10 pr-10'>
+        <div className='pl-10 pr-10 border-2 border-black'>
             <p className='text-sm font-semibold'>Weather today in {city} , {country}</p>
 
             <div className='flex justify-between'>
@@ -28,7 +28,7 @@ function WeatherDetail() {
                     <div className='weather-line'>
                         <div className='flex'>
                             <div>
-                                <img src={temperature} className='icons' />
+                                <img src={temperature} alt='temperature' className='icons' />
                             </div>
                             <p>
                                 High/Low
@@ -41,7 +41,7 @@ function WeatherDetail() {
                     <div className='weather-line'>
                         <div className='flex'>
                             <div>
-                                <img src={humidityIcon} className='icons' />
+                                <img src={humidityIcon} alt='humidityIcon' className='icons' />
                             </div>
                             <p>
                                 Humidity
@@ -70,7 +70,7 @@ function WeatherDetail() {
                     <div className='weather-line'>
                         <div className='flex'>
                             <div>
-                                <img src={visibilityIcon} className='icons' />
+                                <img src={visibilityIcon} alt='visibilityIcon' className='icons' />
                             </div>
                             <p>
                                 Visibility
@@ -83,7 +83,7 @@ function WeatherDetail() {
                     <div className='weather-line'>
                         <div className='flex'>
                             <div>
-                                <img src={windIcon} className='icons' />
+                                <img src={windIcon} alt='windIcon' className='icons' />
                             </div>
                             <p>
                                 Wind
@@ -96,7 +96,7 @@ function WeatherDetail() {
                     <div className='weather-line'>
                         <div className='flex'>
                             <div className='flex'>
-                                <img src={devPointIcon} className='icons' />
+                                <img src={devPointIcon} alt='devPointIcon' className='icons' />
                             </div>
                             <p>
                                 Dew Point
