@@ -6,10 +6,10 @@ function CurrentWeather() {
     const { weatherDescription, city, country, temp } = useContext(FetchApiContext);
     return (
         <div className='w-3/6 flex flex-col justify-center items-center'>
-            <div className='text-lg font-semibold'> {city} , {country} </div>
+            <div className='text-2xl font-semibold'> {city} , {country} </div>
             <div className='text-sm mb-2 flex text-gray-500'>as of <Hour /></div>
-            <p className='text-6xl mb-5'> {temp}&deg;</p>
-            <div className='text-3xl font-semibold'> {weatherDescription} </div>
+            <div className='text-9xl mb-5'> {temp}&deg;</div>
+            <div className='text-4xl font-semibold'> {weatherDescription} </div>
         </div>
     )
 }

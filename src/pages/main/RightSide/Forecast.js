@@ -56,21 +56,21 @@ export default function Forecast() {
     return (
         <div className=' w-3/6' >
             <div>
-            {/* <div className=' pl-2'>Today's forecast for {city}, {country} </div> */}
+                {/* <div className=' pl-2'>Today's forecast for {city}, {country} </div> */}
                 <div className='weather-grid'>
-                    {days.map(x => { return <div className='weather-text' >{x} </div> })}
+                    {days.map((x, index) => { return <div key={index} className='weather-text' >{x} </div> })}
                 </div>
                 <div className='weather-grid'>
-                    {forecastTemp.map(x => {
-                        return <div className='weather-text'>
+                    {forecastTemp.map((x, index) => {
+                        return <div key={index} className='weather-text'>
                             <div className='text-3xl'>{x}&deg;</div>
                         </div>
                     })}
                 </div>
                 <div className='weather-grid '>
-                    {forecastDays.map(x => {
-                        return <div className='images'>
-                            <img src={x}/>
+                    {forecastDays.map((x, index) => {
+                        return <div key={index} className='images'>
+                            <img src={x} />
                         </div>
                     })}
                 </div>

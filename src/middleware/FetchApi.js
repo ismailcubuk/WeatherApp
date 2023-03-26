@@ -6,59 +6,76 @@ export const FetchApiContextprovider = ({ children }) => {
     const [getWeather, setGetWeather] = useState()
     const [getForecast, setGetForecast] = useState([])
 
-    useEffect(() => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=izmir&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`)
-            .then(response => response.json())
-            .then(data => setGetWeather(data))
-            .catch(error => console.error(error));
-    }, [])
     // useEffect(() => {
-    //     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=ankara&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`)
+    //     fetch(`https://api.openweathermap.org/data/2.5/weather?q=izmir&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`)
     //         .then(response => response.json())
-    //         .then(data => setGetForecast(data))
+    //         .then(data => setGetWeather(data))
     //         .catch(error => console.error(error));
     // }, [])
+
     // useEffect(() => {
-    //     if (getForecast.list) {
-    //         getForecast.list.map(item => {
-    //             console.log("Temperature:", item.main.temp);
-    //             console.log("Main:", item.weather[0].icon);
-    //         });
-    //     }
-    // }, [getForecast]);
-    // useEffect(() => {
-    //     if (getForecast.list) {
-    //       const filteredDates = getForecast.list.filter(item => {
-    //         const dateTime = new Date(item.dt_txt);
-    //         const currentDate = new Date();
-    //         const targetDate = new Date();
-    //         targetDate.setDate(currentDate.getDate() + 1);
-    //         return dateTime.getDate() === targetDate.getDate() && dateTime.getHours() === 12;
-    //       });
-    //       const temperatures = filteredDates.map(item => item.main.temp);
-    //       const dates = filteredDates.map(item => item.dt_txt);
-    //       console.log("Temperatures:", temperatures);
-    //       console.log("Dates:", dates);
-    //     }
-    //   }, [getForecast]);
+    //     fetch(
+    //         "https://api.openweathermap.org/data/2.5/forecast?q=izmir&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric"
+    //     )
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             // setGetWeather(data)
+    //             const filteredData = data.list.filter(
+    //                 (item) =>
+    //                     item.dt_txt.includes("12:00:00") &&
+    //                     !item.dt_txt.includes(new Date().toISOString().slice(0, 10))
+    //             );
+    //             setGetForecast(filteredData);
+    //         })
+    //         .catch((error) => console.error(error));
+    // }, []);
+    const [cityName, setCityName] = useState("istanbul")
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            setCityName(e.target.value);
+        }
+    };
+
+
+    const [location, setLocation] = useState('');
 
     useEffect(() => {
-        fetch(
-            "https://api.openweathermap.org/data/2.5/forecast?q=izmir&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric"
-        )
-            .then((response) => response.json())
-            .then((data) => {
-                const filteredData = data.list.filter(
-                    (item) =>
-                        item.dt_txt.includes("12:00:00") &&
-                        !item.dt_txt.includes(new Date().toISOString().slice(0, 10))
-                );
-                setGetForecast(filteredData);
-            })
-            .catch((error) => console.error(error));
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            const { latitude, longitude } = position.coords;
+
+            const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`);
+            const data = await response.json();
+
+            setLocation(data.city);
+        });
     }, []);
 
-    // console.log("forecast", getForecast);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const [weatherResponse, forecastResponse] = await Promise.all([
+                    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`),
+                    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`)
+                ]);
+
+                const [weatherData, forecastData] = await Promise.all([weatherResponse.json(), forecastResponse.json()]);
+
+                setGetWeather(weatherData);
+
+                const filteredData = forecastData.list.filter(
+                    (item) => item.dt_txt.includes("12:00:00") && !item.dt_txt.includes(new Date().toISOString().slice(0, 10))
+                );
+                setGetForecast(filteredData);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+    }, [cityName]);
+
 
 
     const today = new Date();
@@ -69,15 +86,11 @@ export const FetchApiContextprovider = ({ children }) => {
         day.setDate(today.getDate() + i);
         days.push(day.toLocaleDateString('en-US', options));
     }
-    console.log(days);
 
 
-    
-    const forecastTemp = getForecast.map(tempArr => tempArr.main.temp).map(temp=>Math.round(temp))
+
+    const forecastTemp = getForecast.map(tempArr => tempArr.main.temp).map(temp => Math.round(temp))
     const forecastIcons = getForecast.map(x => x.weather[0].icon);
-
-
-
 
 
 
@@ -100,6 +113,7 @@ export const FetchApiContextprovider = ({ children }) => {
 
 
     const data = {
+        handleKeyDown,
         forecastTemp,
         forecastIcons,
         days,

@@ -1,5 +1,6 @@
 import Icons from "./assets/Icons";
 import Navbar from "./components/navbar/Navbar";
+import Location from "./middleware/Location";
 import CurrentWeather from "./pages/main/LeftSide/CurrentWeather";
 import WeatherDetail from "./pages/main/LeftSide/WeatherDetail";
 import Forecast from "./pages/main/RightSide/Forecast";
@@ -15,6 +16,7 @@ function App() {
         </div>
         <div className=" flex gap-4 h-3/6">
           <CurrentWeather />
+          <Location/>
           <Icons />
         </div>
         <div className=" flex gap-4 h-2/6">
