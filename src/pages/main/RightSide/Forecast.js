@@ -19,7 +19,7 @@ import rain from '../../../assets/icons/rain.svg';
 
 
 export default function Forecast() {
-    const { city, country, forecastTemp, forecastIcons, days } = useContext(FetchApiContext)
+    const { forecastTemp, forecastIcons, days } = useContext(FetchApiContext)
     const [day1, setDay1] = useState(null)
     const [day2, setDay2] = useState(null)
     const [day3, setDay3] = useState(null)
@@ -70,7 +70,7 @@ export default function Forecast() {
                 <div className='weather-grid '>
                     {forecastDays.map((x, index) => {
                         return <div key={index} className='images'>
-                            <img src={x} />
+                            <img alt='img' src={x} />
                         </div>
                     })}
                 </div>

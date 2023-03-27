@@ -11,9 +11,9 @@ function WeatherDetail() {
     const { city, country, feelsLike, tempMin, tempMax, humidity, pressure, visibility, windSpeed, dewPoint } = useContext(FetchApiContext);
     return (
         <div className='w-3/6' >
-            <p className='text-sm font-semibold'>Weather today in {city} , {country}</p>
+            <p className='text-sm font-semibold ml-2 pl-2'>Weather today in {city} , {country}</p>
 
-            <div className='flex justify-between'>
+            <div className='flex justify-between ml-2 pl-2 mr-2 pr-2'>
                 <div>
                     <div className='text-4xl font-semibold'> {feelsLike}&deg; </div>
                     <p className='text-sm text-gray-500'>feels like</p>
