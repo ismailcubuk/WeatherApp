@@ -105,11 +105,15 @@ export const FetchApiContextprovider = ({ children }) => {
         const updatePinnedCity = pinnedCity.filter(city => city.id !== id);
         setPinnedCity(updatePinnedCity);
     };
+    const PinnedCityLocation = (name) => {
+            setCityName(name)
+    }
 
 
 
 
     const data = {
+        PinnedCityLocation,
         deleteCityPinned,
         pinnedCity,
         createCityPinned,
