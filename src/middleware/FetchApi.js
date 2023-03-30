@@ -91,7 +91,7 @@ export const FetchApiContextprovider = ({ children }) => {
     const createCityPinned = () => {
         const newCityName = cityName;
         if (pinnedCity.length < 4) {
-            if (!pinnedCity.some(sa => sa.name === newCityName)) {
+            if (!pinnedCity.some(city => city.name === newCityName)) {
                 const newCity = {
                     id: Date.now(),
                     name: newCityName
@@ -101,8 +101,8 @@ export const FetchApiContextprovider = ({ children }) => {
         }
     };
 
-    const deleteCityPinned = (id) => {
-        const updatePinnedCity = pinnedCity.filter(city => city.id !== id);
+    const deleteCityPinned = (name) => {
+        const updatePinnedCity = pinnedCity.filter(city => city.name !== name);
         setPinnedCity(updatePinnedCity);
     };
     const PinnedCityLocation = (name) => {

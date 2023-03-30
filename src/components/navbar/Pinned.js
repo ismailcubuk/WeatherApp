@@ -7,9 +7,9 @@ export default function Pinned() {
 
     const { deleteCityPinned, pinnedCity, PinnedCityLocation } = useContext(FetchApiContext)
     return (
-        <div className='flex gap-5 items-center h-full'>
+        <div className='flex gap-5 items-center'>
             {pinnedCity.map((city) => (
-                <div className='flex items-center h-fit w-fit bg-white rounded-lg p-1'>
+                <div className='flex items-center h-fit w-fit rounded-lg p-1 glassmorphism'>
                     <button
                         className='flex items-center h-fit w-fit opacity-50 hover:opacity-100'
                         key={city.id}
@@ -17,15 +17,15 @@ export default function Pinned() {
                         onClick={() => PinnedCityLocation(city.name)}
                     >
                         <img src={pin} alt='pin' className='w-6 h-6 mr-1' />
-                        <div>{city.name}</div>
+                        <div >{city.name}</div>
                     </button>
                     <button
-                        className='ml-2 rounded-full bg-red-500 opacity-40 hover:opacity-100'
+                        className='ml-2 rounded-full bg-red-500 opacity-40 hover:opacity-90'
                         key={city.id}
                         name={city.name}
-                        onClick={() => deleteCityPinned(city.id)}
+                        onClick={() => deleteCityPinned(city.name)}
                     >
-                        <img src={x} alt='pin' className='w-6 h-6' />
+                        <img src={x} alt='pin' className='w-6 h-6 p-0.5' />
                     </button>
                 </div>
             ))}

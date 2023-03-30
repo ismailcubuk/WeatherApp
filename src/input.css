@@ -1,14 +1,23 @@
 @tailwind base;
 @tailwind components;
-
 @tailwind utilities;
 
+@layer components {
+    .glassmorphism {
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+        border-radius: 8px;
+    }
+}
+
+
 .weather-line {
-    @apply flex justify-between m-2 p-2 border-b-2 border-gray-500
+    @apply flex justify-between p-2 m-2 border-b-2 border-gray-500
 }
 
 .icons {
-    @apply w-6 h-6 mr-1 
+    @apply w-6 h-6 mr-1
 }
 
 .box {
@@ -16,14 +25,13 @@
 }
 
 .images {
-    @apply border-2 w-full h-full border-gray-600 border-r-0 border-t-0 border-b-0 border-l-2
+    @apply border-2 w-full h-full border-gray-600 border-r-0 border-t-0 border-b-0 first:border-l-0
 }
 
 .weather-text {
-    @apply border-2 w-full h-full border-gray-600 border-r-0 border-t-0 border-b-0 border-l-2 pl-2
+    @apply border-2 w-full h-full border-gray-600 border-r-0 border-t-0 border-b-0 border-l-2 pl-2 first:border-l-0
 }
 
 .weather-grid {
     @apply grid grid-flow-col grid-cols-4
 }
-

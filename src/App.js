@@ -9,14 +9,14 @@ function App() {
     <div className="h-screen bg-bg-image bg-cover bg-no-repeat">
 
       <div className="h-full ">
-        <div className="h-1/6">
+        <div className="h-1/6 ">
           <Navbar />
         </div>
-        <div className=" flex gap-4 h-3/6">
+        <div className=" flex gap-4 h-3/6 justify-around">
           <CurrentWeather />
           <Icons />
         </div>
-        <div className=" flex gap-4 h-2/6">
+        <div className=" flex gap-4 h-fit justify-around">
           <WeatherDetail />
           <Forecast />
         </div>

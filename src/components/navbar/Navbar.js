@@ -8,7 +8,7 @@ function Navbar() {
     return (
         <div>
             <div className='border-b-4 flex pl-4 pr-4 justify-between border-stone-300 h-20 w-full' >
-                <div className='font-bold text-xl '>
+                <div className='font-bold text-xl flex items-center '>
                     <Pinned />
                 </div>
                 <div className='w-2/12 min-w-[300px] flex justify-around items-center ' >

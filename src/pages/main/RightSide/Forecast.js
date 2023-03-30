@@ -53,10 +53,9 @@ export default function Forecast() {
     }, [forecastIcons]);
     const forecastDays = [day1, day2, day3, day4];
     return (
-        <div className=' w-3/6' >
+        <div className=' w-2/6 glassmorphism p-2' >
             <div>
-                {/* <div className=' pl-2'>Today's forecast for {city}, {country} </div> */}
-                <div className='weather-grid'>
+                <div className='weather-grid pt-2'>
                     {days.map((x, index) => { return <div key={index} className='weather-text' >{x} </div> })}
                 </div>
                 <div className='weather-grid'>
