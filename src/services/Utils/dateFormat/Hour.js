@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function Hour() {
     const [localHour, setLocalHour] = useState('');
@@ -15,6 +15,6 @@ export default function Hour() {
         return () => clearInterval(interval);
     }, []);
     return (
-        <div className='pl-1'>{localHour}</div>
+        <div className=''>as of {localHour}</div>
     )
 }

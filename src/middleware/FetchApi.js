@@ -5,7 +5,7 @@ const FetchApiContext = createContext();
 export const FetchApiContextprovider = ({ children }) => {
     const [getWeather, setGetWeather] = useState()
     const [getForecast, setGetForecast] = useState([])
-    const [cityName, setCityName] = useState('istanbul')
+    const [cityName, setCityName] = useState('')
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
@@ -90,12 +90,14 @@ export const FetchApiContextprovider = ({ children }) => {
 
     const createCityPinned = () => {
         const newCityName = cityName;
-        if (!pinnedCity.some(sa => sa.name === newCityName)) {
-            const newCity = {
-                id: Date.now(),
-                name: newCityName
-            };
-            setPinnedCity([...pinnedCity, newCity]);
+        if (pinnedCity.length < 4) {
+            if (!pinnedCity.some(sa => sa.name === newCityName)) {
+                const newCity = {
+                    id: Date.now(),
+                    name: newCityName
+                };
+                setPinnedCity([...pinnedCity, newCity]);
+            }
         }
     };
 

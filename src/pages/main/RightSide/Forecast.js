@@ -52,7 +52,6 @@ export default function Forecast() {
         setDay4(icons[forecastIcons[3]]);
     }, [forecastIcons]);
     const forecastDays = [day1, day2, day3, day4];
-    console.log(forecastTemp);
     return (
         <div className=' w-3/6' >
             <div>

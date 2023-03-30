@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="h-screen bg-bg-image bg-cover bg-no-repeat">
 
-      <div className="h-full backdrop-blur-md">
+      <div className="h-full ">
         <div className="h-1/6">
           <Navbar />
         </div>

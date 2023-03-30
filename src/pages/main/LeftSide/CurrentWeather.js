@@ -10,8 +10,8 @@ function CurrentWeather() {
                 <img src={pin} alt='pin' className='icons' />
                 {city}, {country}
             </button>
-            <div className='text-sm mb-2 flex text-gray-500'>as of <Hour /></div>
-            <div className='text-9xl mb-5'> {temp}&deg;</div>
+            <Hour />
+            <div className='text-9xl pt-5 pb-7'> {temp}&deg;</div>
             <div className='text-4xl font-semibold'> {weatherDescription} </div>
         </div>
     )
