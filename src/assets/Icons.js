@@ -1,20 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react'
 import FetchApiContext from '../middleware/FetchApi'
-import clearDay from '../assets/icons/clear-day.svg';
-import clearNight from '../assets/icons/clear-night.svg';
-import cloudyDay from '../assets/icons/cloudy-day.svg';
-import cloudyNight from '../assets/icons/cloudy-night.svg';
-import overcastDay from '../assets/icons/overcast-day.svg';
-import overcastNight from '../assets/icons/overcast-night.svg';
-import rainDay from '../assets/icons/rain-day.svg';
-import rainNight from '../assets/icons/rain-night.svg';
-import thunderstromsDay from '../assets/icons/thunderstorms-day.svg';
-import thunderstromsNight from '../assets/icons/thunderstorms-night.svg';
-import snowDay from '../assets/icons/snow-day.svg';
-import snowNight from '../assets/icons/snow-night.svg';
-import mist from '../assets/icons/mist.svg';
-import cloudy from '../assets/icons/cloudy.svg';
-import rain from '../assets/icons/rain.svg';
+import clearDay from '../assets/icons/forecast/clear-day.svg';
+import clearNight from '../assets/icons/forecast/clear-night.svg';
+import cloudyDay from '../assets/icons/forecast/cloudy-day.svg';
+import cloudyNight from '../assets/icons/forecast/cloudy-night.svg';
+import overcastDay from '../assets/icons/forecast/overcast-day.svg';
+import overcastNight from '../assets/icons/forecast/overcast-night.svg';
+import rainDay from '../assets/icons/forecast/rain-day.svg';
+import rainNight from '../assets/icons/forecast/rain-night.svg';
+import thunderstromsDay from '../assets/icons/forecast/thunderstorms-day.svg';
+import thunderstromsNight from '../assets/icons/forecast/thunderstorms-night.svg';
+import snowDay from '../assets/icons/forecast/snow-day.svg';
+import snowNight from '../assets/icons/forecast/snow-night.svg';
+import mist from '../assets/icons/forecast/mist.svg';
+import cloudy from '../assets/icons/forecast/cloudy.svg';
+import rain from '../assets/icons/forecast/rain.svg';
 
 
 export default function Icons() {

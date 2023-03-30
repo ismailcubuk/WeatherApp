@@ -43,7 +43,7 @@ export const FetchApiContextprovider = ({ children }) => {
                 setGetWeather(weatherData);
 
                 const filteredData = forecastData.list.filter(
-                    (item) => item.dt_txt.includes("12:00:00") && !item.dt_txt.includes(new Date().toISOString().slice(0, 10))
+                    (item) => item.dt_txt.includes("12:00:00") && !item.dt_txt.includes(new Date().toISOString().slice(0, 8))
                 );
                 setGetForecast(filteredData);
             } catch (error) {
@@ -86,8 +86,31 @@ export const FetchApiContextprovider = ({ children }) => {
     const windSpeed = getWeather ? Math.round(getWeather.wind.speed * 10) : '';
     const dewPoint = Math.round((237.7 * (Math.log(humidity / 100) + ((17.27 * temp) / (237.7 + temp)))) / (17.27 - Math.log(humidity / 100) - ((17.27 * temp) / (237.7 + temp))));
 
+    const [pinnedCity, setPinnedCity] = useState([]);
+
+    const createCityPinned = () => {
+        const newCityName = cityName;
+        if (!pinnedCity.some(sa => sa.name === newCityName)) {
+            const newCity = {
+                id: Date.now(),
+                name: newCityName
+            };
+            setPinnedCity([...pinnedCity, newCity]);
+        }
+    };
+
+    const deleteCityPinned = (id) => {
+        const updatePinnedCity = pinnedCity.filter(city => city.id !== id);
+        setPinnedCity(updatePinnedCity);
+    };
+
+
+
 
     const data = {
+        deleteCityPinned,
+        pinnedCity,
+        createCityPinned,
         handleKeyDown,
         forecastTemp,
         forecastIcons,

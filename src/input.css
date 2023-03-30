@@ -8,7 +8,7 @@
 }
 
 .icons {
-    @apply w-6 h-6 mr-2
+    @apply w-6 h-6 mr-1 
 }
 
 .box {
@@ -26,3 +26,4 @@
 .weather-grid {
     @apply grid grid-flow-col grid-cols-4
 }
+

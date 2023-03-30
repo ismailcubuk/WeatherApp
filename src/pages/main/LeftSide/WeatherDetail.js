@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import FetchApiContext from '../../../middleware/FetchApi'
-import temperature from '../../../assets/icons/temperature.svg';
-import humidityIcon from '../../../assets/icons/humidity.svg'
-import visibilityIcon from '../../../assets/icons/visibility.svg'
-import windIcon from '../../../assets/icons/wind.svg'
-import devPointIcon from '../../../assets/icons/dew-point.svg'
+import temperature from '../../../assets/icons/forecastDetail/temperature.svg';
+import humidityIcon from '../../../assets/icons/forecastDetail/humidity.svg'
+import visibilityIcon from '../../../assets/icons/forecastDetail/visibility.svg'
+import windIcon from '../../../assets/icons/forecastDetail/wind.svg'
+import devPointIcon from '../../../assets/icons/forecastDetail/dew-point.svg'
 
 
 function WeatherDetail() {
