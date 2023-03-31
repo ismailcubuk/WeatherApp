@@ -35,7 +35,7 @@ function WeatherDetail() {
                             </p>
                         </div>
                         <p>
-                            {tempMin}&deg;/{tempMax}&deg;
+                            {tempMax}&deg;/{tempMin}&deg;
                         </p>
                     </div>
                     <div className='weather-line'>

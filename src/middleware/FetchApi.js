@@ -29,6 +29,7 @@ export const FetchApiContextprovider = ({ children }) => {
         getLocationAndSetCityName();
     }, [getLocationAndSetCityName]);
 
+    const [detail, setDetail] = useState([])
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -41,10 +42,24 @@ export const FetchApiContextprovider = ({ children }) => {
                 const [weatherData, forecastData] = await Promise.all([weatherResponse.json(), forecastResponse.json()]);
 
                 setGetWeather(weatherData);
+                    console.log(forecastData);
+                const filteredDetail = forecastData.list.slice(0, 9).map((item) => {
+                    return {
+                        temp_max: item.main.temp_max,
+                        temp_min: item.main.temp_min,
+                        temp: item.main.temp,
+                        feels_like: item.main.feels_like,
+                        humidity: item.main.humidity,
+                        pressure: item.main.pressure,
+                        visibility: item.visibility,
+                    };
+                });
+
+                setDetail(filteredDetail);
 
                 const filteredData = forecastData.list.filter(
                     (item) => item.dt_txt.includes("12:00:00") && !item.dt_txt.includes(new Date().toISOString().slice(0, 8))
-                );
+                ).slice(0,4);
                 setGetForecast(filteredData);
             } catch (error) {
                 console.error(error);
@@ -55,8 +70,17 @@ export const FetchApiContextprovider = ({ children }) => {
     }, [cityName]);
 
 
+    
+    const temp = getWeather ? Math.round(getWeather.main.temp) : '';
+    const tempAvg = Math.round(detail.reduce((acc, item) => acc + item.temp, 0) / detail.length);
+    const tempMax = Math.round(detail.reduce((max, item) => (item.temp_max > max ? item.temp_max : max), -Infinity));
+    const tempMin = Math.round(detail.reduce((min, item) => (item.temp_min < min ? item.temp_min : min), Infinity));
+    const humidity = Math.round(detail.reduce((humidity, item) => humidity + item.humidity, 0) / detail.length);
+    const pressure = Math.round(detail.reduce((pressure, item) => pressure + item.pressure, 0) / detail.length);
 
-
+    const visibility = Math.round(detail.reduce((visibility, item) => visibility + item.visibility, 0) / detail.length)/ 1000;
+    const windSpeed = getWeather ? Math.round(getWeather.wind.speed * 10) : '';
+    const dewPoint = Math.round((237.7 * (Math.log(humidity / 100) + ((17.27 * tempAvg) / (237.7 + tempAvg)))) / (17.27 - Math.log(humidity / 100) - ((17.27 * tempAvg) / (237.7 + tempAvg))));
 
     const today = new Date();
     const options = { weekday: 'long' };
@@ -77,16 +101,9 @@ export const FetchApiContextprovider = ({ children }) => {
     const weatherDescription = getWeather ? getWeather.weather[0].description : '';
     const weatherIcon = getWeather ? getWeather.weather[0].icon : '';
     const feelsLike = getWeather ? Math.round(getWeather.main.feels_like) : '';
-    const temp = getWeather ? Math.round(getWeather.main.temp) : '';
     const country = getWeather ? getWeather.sys.country : '';
     const city = getWeather ? getWeather.name : '';
-    const tempMin = getWeather ? Math.round(getWeather.main.temp_min) : '';
-    const tempMax = getWeather ? Math.round(getWeather.main.temp_max) : '';
-    const humidity = getWeather ? getWeather.main.humidity : '';
-    const pressure = getWeather ? getWeather.main.pressure : '';
-    const visibility = getWeather ? Math.round(getWeather.visibility / 1000) : '';
-    const windSpeed = getWeather ? Math.round(getWeather.wind.speed * 10) : '';
-    const dewPoint = Math.round((237.7 * (Math.log(humidity / 100) + ((17.27 * temp) / (237.7 + temp)))) / (17.27 - Math.log(humidity / 100) - ((17.27 * temp) / (237.7 + temp))));
+
 
     const [pinnedCity, setPinnedCity] = useState([]);
 
