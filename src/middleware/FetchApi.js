@@ -23,7 +23,7 @@ export const FetchApiContextprovider = ({ children }) => {
 
             setCityName(data.city);
         });
-    }, []);
+    }, [setCityName]);
 
     useEffect(() => {
         getLocationAndSetCityName();
@@ -53,6 +53,8 @@ export const FetchApiContextprovider = ({ children }) => {
 
         fetchData();
     }, [cityName]);
+
+
 
 
 
@@ -100,19 +102,18 @@ export const FetchApiContextprovider = ({ children }) => {
             }
         }
     };
-
-    const deleteCityPinned = (name) => {
-        const updatePinnedCity = pinnedCity.filter(city => city.name !== name);
+    const deleteCityPinned = (id) => {
+        const updatePinnedCity = pinnedCity.filter(city => city.id !== id);
         setPinnedCity(updatePinnedCity);
     };
-    const PinnedCityLocation = (name) => {
-            setCityName(name)
+    const PinnedCityLocation = (id) => {
+        setCityName(id)
     }
 
 
 
-
     const data = {
+        getLocationAndSetCityName,
         PinnedCityLocation,
         deleteCityPinned,
         pinnedCity,
