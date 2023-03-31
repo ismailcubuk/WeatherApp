@@ -9,11 +9,9 @@ export default function Pinned() {
     return (
         <div className='flex gap-5 items-center'>
             {pinnedCity.map((city) => (
-                <div className='flex items-center h-fit w-fit rounded-lg p-1 glassmorphism'>
+                <div className='flex items-center h-fit w-fit rounded-lg p-1 glassmorphism' key={city.id}>
                     <button
                         className='flex items-center h-fit w-fit opacity-50 hover:opacity-100'
-                        key={city.id}
-                        name={city.name}
                         onClick={() => PinnedCityLocation(city.name)}
                     >
                         <img src={pin} alt='pin' className='w-6 h-6 mr-1' />
@@ -21,9 +19,7 @@ export default function Pinned() {
                     </button>
                     <button
                         className='ml-2 rounded-full bg-red-500 opacity-40 hover:opacity-90'
-                        key={city.id}
-                        name={city.name}
-                        onClick={() => deleteCityPinned(city.name)}
+                        onClick={() => deleteCityPinned(city.id)}
                     >
                         <img src={x} alt='pin' className='w-6 h-6 p-0.5' />
                     </button>

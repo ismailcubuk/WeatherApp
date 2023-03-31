@@ -2,6 +2,7 @@ import Degree from './Degree'
 import Search from './Search'
 import Time from '../../services/Utils/dateFormat/Time';
 import Pinned from './Pinned';
+import Location from './Location';
 
 function Navbar() {
 
@@ -11,7 +12,8 @@ function Navbar() {
                 <div className='font-bold text-xl flex items-center '>
                     <Pinned />
                 </div>
-                <div className='w-2/12 min-w-[300px] flex justify-around items-center ' >
+                <div className='border-2 flex items-center justify-around' >
+                    <Location/>
                     <Search />
                     <Degree />
                 </div>
