@@ -12,12 +12,14 @@ export const FetchApiContextprovider = ({ children }) => {
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault()
-            setCityName(e.target.value);
+            setCityName(name);
         }
     };
     const handleCity = (e) => {
         e.preventDefault()
-        setName(e.target.value);
+        const searchName = e.target.value
+        const upperCityName = searchName.charAt(0).toUpperCase() + searchName.slice(1).toLowerCase()
+        setName(upperCityName)
     };
     const searchClick = (e) => {
         e.preventDefault()
