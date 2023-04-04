@@ -6,13 +6,24 @@ export const FetchApiContextprovider = ({ children }) => {
     const [getWeather, setGetWeather] = useState()
     const [getForecast, setGetForecast] = useState([])
     const [cityName, setCityName] = useState('')
+    const [name, setName] = useState('')
 
+    // search button
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault()
             setCityName(e.target.value);
         }
     };
+    const handleCity = (e) => {
+        e.preventDefault()
+        setName(e.target.value);
+    };
+    const searchClick = (e) => {
+        e.preventDefault()
+        setCityName(name);
+    }
+    // search button
 
     const getLocationAndSetCityName = useCallback(() => {
         navigator.geolocation.getCurrentPosition(async (position) => {
@@ -42,7 +53,6 @@ export const FetchApiContextprovider = ({ children }) => {
                 const [weatherData, forecastData] = await Promise.all([weatherResponse.json(), forecastResponse.json()]);
 
                 setGetWeather(weatherData);
-                    console.log(forecastData);
                 const filteredDetail = forecastData.list.slice(0, 9).map((item) => {
                     return {
                         temp_max: item.main.temp_max,
@@ -58,8 +68,8 @@ export const FetchApiContextprovider = ({ children }) => {
                 setDetail(filteredDetail);
 
                 const filteredData = forecastData.list.filter(
-                    (item) => item.dt_txt.includes("12:00:00") && !item.dt_txt.includes(new Date().toISOString().slice(0, 8))
-                ).slice(0,4);
+                    (item) => item.dt_txt.includes("12:00:00") && !item.dt_txt.includes(new Date().toISOString())
+                ).slice(0, 4);
                 setGetForecast(filteredData);
             } catch (error) {
                 console.error(error);
@@ -70,7 +80,6 @@ export const FetchApiContextprovider = ({ children }) => {
     }, [cityName]);
 
 
-    
     const temp = getWeather ? Math.round(getWeather.main.temp) : '';
     const tempAvg = Math.round(detail.reduce((acc, item) => acc + item.temp, 0) / detail.length);
     const tempMax = Math.round(detail.reduce((max, item) => (item.temp_max > max ? item.temp_max : max), -Infinity));
@@ -78,7 +87,7 @@ export const FetchApiContextprovider = ({ children }) => {
     const humidity = Math.round(detail.reduce((humidity, item) => humidity + item.humidity, 0) / detail.length);
     const pressure = Math.round(detail.reduce((pressure, item) => pressure + item.pressure, 0) / detail.length);
 
-    const visibility = Math.round(detail.reduce((visibility, item) => visibility + item.visibility, 0) / detail.length)/ 1000;
+    const visibility = Math.round(detail.reduce((visibility, item) => visibility + item.visibility, 0) / detail.length) / 1000;
     const windSpeed = getWeather ? Math.round(getWeather.wind.speed * 10) : '';
     const dewPoint = Math.round((237.7 * (Math.log(humidity / 100) + ((17.27 * tempAvg) / (237.7 + tempAvg)))) / (17.27 - Math.log(humidity / 100) - ((17.27 * tempAvg) / (237.7 + tempAvg))));
 
@@ -129,7 +138,10 @@ export const FetchApiContextprovider = ({ children }) => {
 
 
 
+
     const data = {
+        handleCity,
+        searchClick,
         getLocationAndSetCityName,
         PinnedCityLocation,
         deleteCityPinned,
