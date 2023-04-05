@@ -95,15 +95,14 @@ export const FetchApiContextprovider = ({ children }) => {
 
     const today = new Date();
     const options = { weekday: 'long' };
+   
+
     const days = [];
     for (let i = 1; i < 5; i++) {
         const day = new Date(today);
         day.setDate(today.getDate() + i);
         days.push(day.toLocaleDateString('en-US', options));
     }
-
-
-
     const forecastTemp = getForecast.map(tempArr => tempArr.main.temp).map(temp => Math.round(temp))
     const forecastIcons = getForecast.map(x => x.weather[0].icon);
 
