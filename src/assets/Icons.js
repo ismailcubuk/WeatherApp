@@ -47,7 +47,7 @@ export default function Icons() {
     }, [weatherIcon]);
 
     return (
-        <div className='flex justify-center w-3/6 md:w-1/2 xl:w-5/12 ' >
+        <div className='flex justify-center w-3/6 mb-5 mt-5 md:mb-0 md:mt-0 md:w-1/2 xl:w-5/12 ' >
             <img src={image} className='glassmorphism w-full h-full shadow-2xl md:w-3/5' />
         </div>
     )

@@ -52,22 +52,24 @@ export default function Forecast() {
         setDay4(icons[forecastIcons[3]]);
     }, [forecastIcons]);
     const forecastDays = [day1, day2, day3, day4];
-    const a1 = days.map((x, index) => { return <div key={index} >{x} </div> })
-    const a2 = forecastTemp.map((x, index) => {
+
+    const day = days.map((x, index) => { return <div key={index} >{x} </div> })
+    const temperature = forecastTemp.map((x, index) => {
         return <div key={index}>
             <div className='text-3xl'>{x}&deg;</div>
         </div>
     })
-    const a3 = forecastDays.map((x, index) => {
+    const weatherIcons = forecastDays.map((x, index) => {
         return <div key={index}>
             <img alt='img' className='w-full h-full' src={x} />
         </div>
     })
+    console.log(weatherIcons);
     return (
-        <div className='md:w-1/2 xl:w-5/12 glassmorphism p-5 shadow-2xl ' >
-                <div className='grid grid-flow-col'>{a1}</div>
-                <div className='grid grid-flow-col'>{a2}</div>
-                <div className='grid grid-flow-col'>{a3}</div>
+        <div className='md:w-1/2 xl:w-5/12 glassmorphism p-5 shadow-2xl' >
+            <div className='flex justify-around'>{day}</div>
+            <div className='flex justify-around'>{temperature}</div>
+            <div className='flex justify-around'>{weatherIcons}</div>
         </div>
     )
 }

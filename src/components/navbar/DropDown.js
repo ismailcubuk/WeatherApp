@@ -22,7 +22,7 @@ export default function DropDown() {
                 <img src={arrowDown} alt='search-icon' className='h-6 w-2/12 ' />
             </button>
             {isMenuOpen && (
-                <ul className="glassmorphism border-none absolute top-14 left-0 w-48 z-10">
+                <ul className="glassmorphism border-none absolute top-14 left-0 w-48">
                     {pinnedCity.map((citys) => (
                         <div className='flex justify-around hover:bg-white hover:opacity-40 rounded-md'>
                             <button
