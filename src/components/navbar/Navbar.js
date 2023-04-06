@@ -1,25 +1,24 @@
-import Degree from './Degree'
 import Search from './Search'
 import Time from '../../services/Utils/dateFormat/Time';
 import Pinned from './Pinned';
 import Location from './Location';
+import DropDown from './DropDown';
 
 function Navbar() {
 
     return (
-        <div>
-            <div className='border-b-4 flex pl-4 pr-4 justify-between border-stone-300 h-20 w-full' >
-                <div className='font-bold text-xl flex items-center '>
+        <div className='glassmorphism'>
+            <div className='flex pl-4 pr-4 justify-between items-center h-20 w-full' >
+                <div className='hidden md:flex font-bold text-xl items-center'>
                     <Pinned />
                 </div>
-                <div className='border-2 flex items-center justify-around' >
-                    <Location/>
-                    <Search />
-                    <Degree />
+                <div className='flex h-full md:hidden font-bold text-xl items-center '>
+                        <DropDown />
                 </div>
-            </div>
-            <div className='w-full flex justify-end'>
-                <Time />
+                <div className='h-full flex items-center justify-around ' >
+                    <Search />
+                    <Location />
+                </div>
             </div>
         </div>
     )

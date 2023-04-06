@@ -95,8 +95,6 @@ export const FetchApiContextprovider = ({ children }) => {
 
     const today = new Date();
     const options = { weekday: 'long' };
-   
-
     const days = [];
     for (let i = 1; i < 5; i++) {
         const day = new Date(today);
@@ -119,7 +117,7 @@ export const FetchApiContextprovider = ({ children }) => {
 
     const createCityPinned = () => {
         const newCityName = cityName;
-        if (pinnedCity.length < 4) {
+        if (pinnedCity.length < 3) {
             if (!pinnedCity.some(city => city.name === newCityName)) {
                 const newCity = {
                     id: Date.now(),
@@ -136,6 +134,7 @@ export const FetchApiContextprovider = ({ children }) => {
     const PinnedCityLocation = (id) => {
         setCityName(id)
     }
+
 
 
 

@@ -6,17 +6,16 @@ import Forecast from "./pages/main/RightSide/Forecast";
 
 function App() {
   return (
-    <div className="sm:h-screen bg-bg-image bg-cover bg-no-repeat">
-
-      <div className="sm:h-full ">
-        <div className=" ">
-          {/* <Navbar /> */}
-        </div>
-        <div className="flex flex-col-reverse sm:flex-row sm:h-3/6 ">
+    <div className=" bg-bg-image flex flex-col justify-between md:h-screen">
+      <div >
+        <Navbar />
+      </div>
+      <div className=" bg-bg-image flex flex-col justify-around md:h-screen">
+        <div className="flex flex-col-reverse items-center // md:flex-row xl:justify-around">
           <CurrentWeather />
           <Icons />
         </div>
-        <div className=" flex flex-col sm:flex-row sm:h-3/6 border-2 border-red-700">
+        <div className="md:flex xl:justify-around">
           <WeatherDetail />
           <Forecast />
         </div>

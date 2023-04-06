@@ -52,28 +52,22 @@ export default function Forecast() {
         setDay4(icons[forecastIcons[3]]);
     }, [forecastIcons]);
     const forecastDays = [day1, day2, day3, day4];
+    const a1 = days.map((x, index) => { return <div key={index} >{x} </div> })
+    const a2 = forecastTemp.map((x, index) => {
+        return <div key={index}>
+            <div className='text-3xl'>{x}&deg;</div>
+        </div>
+    })
+    const a3 = forecastDays.map((x, index) => {
+        return <div key={index}>
+            <img alt='img' className='w-full h-full' src={x} />
+        </div>
+    })
     return (
-        <div className=' w-full sm:w-3/6 sm:flex sm:justify-center sm:items-center' >
-            <div className='sm:w-3/4 sm:h-3/5 glassmorphism flex flex-col'>
-                <div className='weather-grid pt-2'>
-                    {days.map((x, index) => { return <div key={index} className='weather-text' >{x} </div> })}
-                </div>
-                <div className='weather-grid'>
-                    {forecastTemp.map((x, index) => {
-                        return <div key={index} className='weather-text'>
-                            <div className='text-3xl'>{x}&deg;</div>
-                        </div>
-                    })}
-                </div>
-                <div className='weather-grid '>
-                    {forecastDays.map((x, index) => {
-                        return <div key={index} className='images'>
-                            <img alt='img' src={x} />
-                        </div>
-                    })}
-                </div>
-            </div>
-
+        <div className='md:w-1/2 xl:w-5/12 glassmorphism p-5 shadow-2xl ' >
+                <div className='grid grid-flow-col'>{a1}</div>
+                <div className='grid grid-flow-col'>{a2}</div>
+                <div className='grid grid-flow-col'>{a3}</div>
         </div>
     )
 }
