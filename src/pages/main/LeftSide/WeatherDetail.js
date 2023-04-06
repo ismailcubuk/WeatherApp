@@ -6,6 +6,7 @@ import windIcon from '../../../assets/icons/forecastDetail/wind.svg'
 import devPointIcon from '../../../assets/icons/forecastDetail/dew-point.svg'
 import pressures from '../../../assets/icons/forecastDetail/pressures.svg'
 import Visibility from '../../../components/navbar/Visibility';
+import DayTimer from '../../../components/navbar/DayTimer';
 
 
 function WeatherDetail() {
@@ -20,7 +21,7 @@ function WeatherDetail() {
                     <p className='text-sm text-gray-500'>feels like</p>
                 </div>
                 <div>
-                    sun timer
+                    <DayTimer />
                 </div>
             </div>
             <div className='flex flex-col md:flex-row'>
@@ -67,7 +68,7 @@ function WeatherDetail() {
                 </div>
 
                 <div className=' md:w-1/2'>
-                    <Visibility/>
+                    <Visibility />
                     <div className='weather-line'>
                         <div className='flex'>
                             <div>

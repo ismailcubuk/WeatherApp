@@ -26,7 +26,7 @@ export const FetchApiContextprovider = ({ children }) => {
         setCityName(name);
     }
     // search button
-
+console.log(cityName);
     const getLocationAndSetCityName = useCallback(() => {
         navigator.geolocation.getCurrentPosition(async (position) => {
             const { latitude, longitude } = position.coords;
@@ -55,6 +55,7 @@ export const FetchApiContextprovider = ({ children }) => {
                 const [weatherData, forecastData] = await Promise.all([weatherResponse.json(), forecastResponse.json()]);
 
                 setGetWeather(weatherData);
+
                 const filteredDetail = forecastData.list.slice(0, 9).map((item) => {
                     return {
                         temp_max: item.main.temp_max,
@@ -66,7 +67,6 @@ export const FetchApiContextprovider = ({ children }) => {
                         visibility: item.visibility,
                     };
                 });
-
                 setDetail(filteredDetail);
 
                 const filteredData = forecastData.list.filter(
@@ -80,7 +80,11 @@ export const FetchApiContextprovider = ({ children }) => {
 
         fetchData();
     }, [cityName]);
-
+    // DATE
+    const sunrise = getWeather ? getWeather.sys.sunrise : '';
+    const sunset = getWeather ? getWeather.sys.sunset : '';
+    // console.log("sunset",new Date(sunset * 1000).toLocaleTimeString());
+    // console.log("sunrise",new Date(sunrise * 1000).toLocaleTimeString());
 
     const temp = getWeather ? Math.round(getWeather.main.temp) : '';
     const tempAvg = Math.round(detail.reduce((acc, item) => acc + item.temp, 0) / detail.length);
@@ -104,14 +108,11 @@ export const FetchApiContextprovider = ({ children }) => {
     const forecastTemp = getForecast.map(tempArr => tempArr.main.temp).map(temp => Math.round(temp))
     const forecastIcons = getForecast.map(x => x.weather[0].icon);
 
-
-
     const weatherDescription = getWeather ? getWeather.weather[0].description : '';
     const weatherIcon = getWeather ? getWeather.weather[0].icon : '';
     const feelsLike = getWeather ? Math.round(getWeather.main.feels_like) : '';
     const country = getWeather ? getWeather.sys.country : '';
     const city = getWeather ? getWeather.name : '';
-
 
     const [pinnedCity, setPinnedCity] = useState([]);
 
@@ -140,6 +141,8 @@ export const FetchApiContextprovider = ({ children }) => {
 
 
     const data = {
+        sunset,
+        sunrise,
         handleCity,
         searchClick,
         getLocationAndSetCityName,

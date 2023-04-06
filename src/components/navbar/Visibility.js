@@ -13,12 +13,14 @@ export default function Visibility() {
             setWeatherCondition('Moderate');
         } else if (visibility > 1.6 && visibility < 5) {
             setWeatherCondition('Poor');
-        }else if (visibility > 0.5 && visibility < 1.6) {
+        } else if (visibility > 0.5 && visibility < 1.6) {
             setWeatherCondition('Very Poor');
-        }else if (visibility < 0.5) {
+        } else if (visibility < 0.5) {
             setWeatherCondition('Near Zero');
         }
     }, [visibility]);
+
+
     return (
         <div className='weather-line'>
             <div className='flex'>
