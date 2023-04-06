@@ -1,26 +1,22 @@
 <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
-	<title>Yeni Proje</title>
+	<title>800x200sun</title>
 	<defs>
 		<image  width="800" height="200" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAADIAQMAAAAqQRdZAAAAAXNSR0IB2cksfwAAAANQTFRFAAAAp3o92gAAAAF0Uk5TAEDm2GYAAAAqSURBVHic7cExAQAAAMKg9U9tCU+gAAAAAAAAAAAAAAAAAAAAAAAAAOBnTugAAW5RvloAAAAASUVORK5CYII="/>
 	</defs>
 	<style>
-		.s0 { fill: none;stroke: #ff7f00;stroke-linecap: round;stroke-linejoin: round;stroke-width: 15 } 
-		.s1 { fill: #ff7f00 } 
-		.s2 { fill: #ff7f00;stroke: #ff7f00;paint-order:stroke fill markers;stroke-linecap: round;stroke-linejoin: round;stroke-width: 10 } 
+		.s0 { fill: none;stroke: #ff7f00;stroke-linecap: round;stroke-linejoin: round;stroke-width: 13 } 
+		.s1 { fill: #f8af18;stroke: #f4ac18;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3 } 
+		.s2 { fill: #f8af18;stroke: #f8af18;paint-order:stroke fill markers;stroke-linecap: round;stroke-linejoin: round;stroke-width: 6 } 
 	</style>
 	<use id="Background" href="#img1" x="0" y="0"/>
 	<path id="Şekil 1" class="s0" d="m22.2 174.9c69.3-84.9 175.4-132 263.9-154.1 52.3-13.1 199.9-27.5 342.3 35.1"/>
-	<path id="daire" class="s1" d="m700 144.8c-12.1 0-21.8-9.7-21.8-21.8 0-12.1 9.7-21.8 21.8-21.8 12.1 0 21.8 9.7 21.8 21.8 0 12.1-9.7 21.8-21.8 21.8z"/>
-	<path id="alt ç" class="s2" d="m697.8 156.9h4.4v36.1h-4.4z"/>
-	<path id="sol ç" class="s2" d="m666.1 120.8v4.4h-36.1v-4.4z"/>
-	<path id="üst ç" class="s2" d="m702.2 89.1h-4.4v-36.1h4.4z"/>
-	<path id="sağ ç" class="s2" d="m733.9 125.2v-4.4h36.1v4.4z"/>
-	<path id="Şekil 2 copy 5" class="s2" d="m671.7 149l2.3 2.3-19.1 19.1-2.3-2.3z"/>
-	<path id="sol ç copy" class="s2" d="m666.1 120.8v4.4h-36.1v-4.4z"/>
-	<path id="üst ç copy" class="s2" d="m702.2 89.1h-4.4v-36.1h4.4z"/>
-	<path id="sağ ç copy" class="s2" d="m733.9 125.2v-4.4h36.1v4.4z"/>
-	<path id="Şekil 2 copy 9" class="s2" d="m671.7 149l2.3 2.3-19.1 19.1-2.3-2.3z"/>
-	<path id="Şekil 2 copy 6" class="s2" d="m674 94.7l-2.3 2.3-19.1-19.1 2.3-2.4z"/>
-	<path id="Şekil 2 copy 7" class="s2" d="m728.3 97l-2.3-2.3 19.1-19.2 2.3 2.4z"/>
-	<path id="Şekil 2 copy 8" class="s2" d="m726 151.3l2.3-2.3 19.1 19.1-2.3 2.3z"/>
+	<path id="daire" class="s1" d="m703.5 144.8c-14.6 0-26.3-11.7-26.3-26.3 0-14.5 11.7-26.2 26.3-26.2 14.5 0 26.2 11.7 26.2 26.2 0 14.6-11.7 26.3-26.2 26.3z"/>
+	<path id="alt ç" class="s2" d="m701.1 155.6l4.8-0.1v39.5h-4.8z"/>
+	<path id="sol ç" class="s2" d="m667.4 116.1l0.1 4.8h-39.5v-4.8z"/>
+	<path id="üst ç" class="s2" d="m705.9 81.4h-4.8v-39.4h4.8z"/>
+	<path id="sağ ç" class="s2" d="m740.6 120.9v-4.8h39.4v4.8z"/>
+	<path id="Şekil 2 copy 5" class="s2" d="m672.6 146.9l2.5 2.5-20.9 20.9-2.6-2.5z"/>
+	<path id="Şekil 2 copy 6" class="s2" d="m675.1 87.6l-2.5 2.5-21-20.9 2.6-2.6z"/>
+	<path id="Şekil 2 copy 7" class="s2" d="m734.4 90.1l-2.5-2.5 20.9-21 2.6 2.6z"/>
+	<path id="Şekil 2 copy 8" class="s2" d="m731.9 149.4l2.5-2.5 21 20.9-2.6 2.5z"/>
 </svg>
