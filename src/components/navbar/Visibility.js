@@ -33,7 +33,6 @@ export default function Visibility() {
             </div>
             <div className='flex gap-2'>
                 <p>{weatherCondition}</p>
-                <p>Visibility</p>
             </div>
         </div>
     )

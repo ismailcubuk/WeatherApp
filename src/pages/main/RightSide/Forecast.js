@@ -64,7 +64,6 @@ export default function Forecast() {
             <img alt='img' className='w-full h-full' src={x} />
         </div>
     })
-    console.log(weatherIcons);
     return (
         <div className='md:w-1/2 xl:w-5/12 glassmorphism p-5 shadow-2xl' >
             <div className='flex justify-around'>{day}</div>

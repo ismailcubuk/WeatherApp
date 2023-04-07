@@ -1,5 +1,6 @@
 import Icons from "./assets/Icons";
 import Navbar from "./components/navbar/Navbar";
+import Toast from "./components/navbar/Toast";
 import CurrentWeather from "./pages/main/LeftSide/CurrentWeather";
 import WeatherDetail from "./pages/main/LeftSide/WeatherDetail";
 import Forecast from "./pages/main/RightSide/Forecast";
@@ -15,10 +16,11 @@ function App() {
           <CurrentWeather />
           <Icons />
         </div>
-        <div className="md:flex xl:justify-around">
+        <div className="md:flex md:gap-1 xl:justify-around">
           <WeatherDetail />
           <Forecast />
         </div>
+      <Toast/>
       </div>
     </div>
   );

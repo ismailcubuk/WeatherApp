@@ -26,7 +26,6 @@ export const FetchApiContextprovider = ({ children }) => {
         setCityName(name);
     }
     // search button
-console.log(cityName);
     const getLocationAndSetCityName = useCallback(() => {
         navigator.geolocation.getCurrentPosition(async (position) => {
             const { latitude, longitude } = position.coords;
@@ -114,27 +113,43 @@ console.log(cityName);
     const country = getWeather ? getWeather.sys.country : '';
     const city = getWeather ? getWeather.name : '';
 
+
+
+    // PİNNED CİTY
     const [pinnedCity, setPinnedCity] = useState([]);
+    const KEY_PINNED_CITY = "pinnedCity";
+    useEffect(() => {
+        const savedPinnedCity = localStorage.getItem(KEY_PINNED_CITY);
+        if (savedPinnedCity) {
+            setPinnedCity(JSON.parse(savedPinnedCity));
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem(KEY_PINNED_CITY, JSON.stringify(pinnedCity));
+    }, [pinnedCity]);
 
     const createCityPinned = () => {
         const newCityName = cityName;
         if (pinnedCity.length < 3) {
-            if (!pinnedCity.some(city => city.name === newCityName)) {
+            if (!pinnedCity.some((city) => city.name === newCityName)) {
                 const newCity = {
                     id: Date.now(),
-                    name: newCityName
+                    name: newCityName,
                 };
                 setPinnedCity([...pinnedCity, newCity]);
             }
         }
     };
+
     const deleteCityPinned = (id) => {
-        const updatePinnedCity = pinnedCity.filter(city => city.id !== id);
+        const updatePinnedCity = pinnedCity.filter((city) => city.id !== id);
         setPinnedCity(updatePinnedCity);
     };
+
     const PinnedCityLocation = (id) => {
-        setCityName(id)
-    }
+        setCityName(id);
+    };
 
 
 
