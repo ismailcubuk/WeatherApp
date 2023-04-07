@@ -117,6 +117,8 @@ export const FetchApiContextprovider = ({ children }) => {
 
     // PİNNED CİTY
     const [pinnedCity, setPinnedCity] = useState([]);
+    const [shows, setShows] = useState(false)
+    
     const KEY_PINNED_CITY = "pinnedCity";
     useEffect(() => {
         const savedPinnedCity = localStorage.getItem(KEY_PINNED_CITY);
@@ -137,6 +139,7 @@ export const FetchApiContextprovider = ({ children }) => {
                     id: Date.now(),
                     name: newCityName,
                 };
+                setShows(true)
                 setPinnedCity([...pinnedCity, newCity]);
             }
         }
@@ -156,6 +159,7 @@ export const FetchApiContextprovider = ({ children }) => {
 
 
     const data = {
+        shows,
         sunset,
         sunrise,
         handleCity,

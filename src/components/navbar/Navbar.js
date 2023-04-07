@@ -3,7 +3,6 @@ import Time from '../../services/Utils/dateFormat/Time';
 import Pinned from './Pinned';
 import Location from './Location';
 import DropDown from './DropDown';
-import CountDown from './CountDown';
 
 function Navbar() {
 
