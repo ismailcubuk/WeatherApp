@@ -65,7 +65,7 @@ export default function Forecast() {
         </div>
     })
     return (
-        <div className='md:w-1/2 xl:w-5/12 glassmorphism p-5 shadow-2xl' >
+        <div className='md:w-1/2 xl:w-5/12 glassmorphism p-5 flex flex-col justify-around shadow-2xl' >
             <div className='flex justify-around'>{day}</div>
             <div className='flex justify-around'>{temperature}</div>
             <div className='flex justify-around'>{weatherIcons}</div>

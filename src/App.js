@@ -20,7 +20,7 @@ function App() {
           <WeatherDetail />
           <Forecast />
         </div>
-      <Toast/>
+        <Toast />
       </div>
     </div>
   );

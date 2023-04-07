@@ -82,8 +82,6 @@ export const FetchApiContextprovider = ({ children }) => {
     // DATE
     const sunrise = getWeather ? getWeather.sys.sunrise : '';
     const sunset = getWeather ? getWeather.sys.sunset : '';
-    // console.log("sunset",new Date(sunset * 1000).toLocaleTimeString());
-    // console.log("sunrise",new Date(sunrise * 1000).toLocaleTimeString());
 
     const temp = getWeather ? Math.round(getWeather.main.temp) : '';
     const tempAvg = Math.round(detail.reduce((acc, item) => acc + item.temp, 0) / detail.length);
