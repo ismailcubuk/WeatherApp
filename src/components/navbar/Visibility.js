@@ -20,7 +20,6 @@ export default function Visibility() {
         }
     }, [visibility]);
 
-
     return (
         <div className='weather-line'>
             <div className='flex'>

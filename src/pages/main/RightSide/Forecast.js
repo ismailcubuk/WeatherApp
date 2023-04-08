@@ -61,7 +61,7 @@ export default function Forecast() {
     })
     const weatherIcons = forecastDays.map((x, index) => {
         return <div key={index}>
-            <img alt='img' className='w-full h-full' src={x} />
+            <img alt='img' className='w-full h-full img-drop-shadow' src={x} />
         </div>
     })
     return (

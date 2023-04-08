@@ -33,15 +33,14 @@ export default function DropDown() {
         };
     }, [menuRef, buttonRef]);
 
-
-
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
-    console.log(pinnedCity);
     return (
         <div className='w-48 h-14 rounded-md relative '>
-            <p className='absolute flex justify-center items-center top-2 right-5 mt-[-15px] glassmorphism-count border-none opacity-80 rounded-3xl w-6 h-6'> {pinnedCity.length} </p>
+            <span className='count-animation absolute flex justify-center items-center top-2 right-5 mt-[-15px] glassmorphism-count border-none opacity-80 rounded-3xl w-6 h-6'>
+                <span className='flex justify-center' style={{ "--value": pinnedCity.length }}></span>
+            </span>
             <button className='flex glassmorphism-nav h-full w-full glassmorphism-btn border-none justify-between items-center' onClick={toggleMenu} ref={buttonRef}>
                 <div className='w-10/12'>{city}</div>
                 <img src={arrowDown} alt='search-icon' className='h-6 w-2/12' />

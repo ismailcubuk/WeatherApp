@@ -7,7 +7,7 @@ import DropDown from './DropDown';
 function Navbar() {
 
     return (
-        <div className='glassmorphism-nav'>
+        <div className='glassmorphism-nav absolute w-full top-0'>
             <div className='flex pl-4 pr-4 justify-between items-center h-20 w-full' >
                 <div className='hidden md:flex font-bold text-xl items-center'>
                     <Pinned />

@@ -8,12 +8,14 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
         background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
         border-radius: 8px;
+        border: none;
     }
 
     .glassmorphism-nav {
         border: 1px solid rgba(150, 150, 150, 0.3);
         background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
         border-radius: 8px;
+        border: none;
     }
 
     .glassmorphism-btn:hover {
@@ -23,29 +25,83 @@
     .glassmorphism-count {
         backdrop-filter: blur(30px);
         background: linear-gradient(to bottom, rgba(10, 0, 146, 0.1), rgba(10, 0, 146, 0.5));
+        border: none;
     }
 
     .weather-line {
-        @apply flex justify-between p-2 m-2 border-b-2 border-gray-500
+        display: flex;
+        padding: 0.5rem;
+        margin: 0.5rem;
+        border-bottom-width: 2px;
+        --tw-border-opacity: 1;
+        border-color: rgb(107 114 128 / var(--tw-border-opacity));
+        justify-content: space-between
     }
 
     .icons {
-        @apply w-6 h-6 mr-1
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.25rem;
     }
 
     .box {
-        @apply border-2 border-blue-700
+        border-width: 0.125rem;
+        border-color: #1d4ed8;
     }
 
     .images {
-        @apply border-2 w-full h-full border-gray-600 border-r-0 border-t-0 border-b-0 first: border-l-0
+        border-width: 0.125rem;
+        width: 100%;
+        height: 100%;
+        border-color: #6b7280;
+        border-right-width: 0;
+        border-top-width: 0;
+        border-bottom-width: 0;
+        border-left-width: 0;
     }
 
     .weather-text {
-        @apply border-2 w-full h-full border-gray-600 border-r-0 border-t-0 border-b-0 border-l-2 pl-2 first: border-l-0
+        border-width: 0.125rem;
+        width: 100%;
+        height: 100%;
+        border-color: #6b7280;
+        border-right-width: 0;
+        border-top-width: 0;
+        border-bottom-width: 0;
+        border-left-width: 0.125rem;
+        padding-left: 0.5rem;
     }
 
     .weather-grid {
-        @apply grid grid-flow-col grid-cols-4
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
+
+
+
+    :root .count-animation {
+        line-height: 1em;
+    }
+    .count-animation {
+        display: inline-flex;
+    }
+    .count-animation > * {
+        height: 1em;
+        display: inline-block;
+        overflow-y: hidden;
+    }
+    .count-animation > *:before {
+        position: relative;
+        content: "0\A 1\A 2\A 3\A";
+        white-space: pre;
+        top: calc(var(--value) * -1em);
+        text-align: center;
+        transition: all 1s cubic-bezier(1, 0, 0, 1);
+    }
+    .img-drop-shadow {
+        --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 1));
+        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+    }
+
 }
