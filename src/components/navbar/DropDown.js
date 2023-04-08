@@ -9,6 +9,8 @@ import arrowDown from '../../assets/icons/pin/arrowDown.svg'
 import FetchApiContext from '../../middleware/FetchApi';
 
 export default function DropDown() {
+    const { deleteCityPinned, pinnedCity, PinnedCityLocation, city } = useContext(FetchApiContext);
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef(null);
     const buttonRef = useRef(null);
@@ -36,19 +38,20 @@ export default function DropDown() {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
-    const { deleteCityPinned, pinnedCity, PinnedCityLocation, city } = useContext(FetchApiContext)
+    console.log(pinnedCity);
     return (
-        <div className='flex justify-center items-center w-48 h-14 rounded-md relative'>
-            <button className='flex glassmorphism h-full w-full justify-between items-center' onClick={toggleMenu} ref={buttonRef}>
+        <div className='w-48 h-14 rounded-md relative '>
+            <p className='absolute flex justify-center items-center top-2 right-5 mt-[-15px] glassmorphism-count border-none opacity-80 rounded-3xl w-6 h-6'> {pinnedCity.length} </p>
+            <button className='flex glassmorphism-nav h-full w-full glassmorphism-btn border-none justify-between items-center' onClick={toggleMenu} ref={buttonRef}>
                 <div className='w-10/12'>{city}</div>
                 <img src={arrowDown} alt='search-icon' className='h-6 w-2/12' />
             </button>
             {isMenuOpen && (
-                <ul className='glassmorphism border-none absolute top-14 left-0 w-48 ' ref={menuRef}>
+                <ul className=' border-none relative z-40 w-48 ' ref={menuRef}>
                     {pinnedCity.map((city) => (
-                        <div className='flex justify-around hover:bg-white hover:opacity-40 rounded-md' key={city.id}>
+                        <div className='flex justify-around rounded-md glassmorphism-btn glassmorphism-nav backdrop-blur-md border-none p-1' key={city.id}>
                             <button
-                                className='flex p-2 w-full items-center opacity-50 hover:opacity-100 disabled:bg-white disabled:opacity-40'
+                                className='flex p-2 w-full items-center'
                                 onClick={() => PinnedCityLocation(city.name)}
                             >
                                 <img src={pin} alt='pin' className='w-6 h-6 mr-1' />

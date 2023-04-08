@@ -9,29 +9,43 @@
         background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
         border-radius: 8px;
     }
-}
 
+    .glassmorphism-nav {
+        border: 1px solid rgba(150, 150, 150, 0.3);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+        border-radius: 8px;
+    }
 
-.weather-line {
-    @apply flex justify-between p-2 m-2 border-b-2 border-gray-500
-}
+    .glassmorphism-btn:hover {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(10, 0, 146, 0.3));
+    }
 
-.icons {
-    @apply w-6 h-6 mr-1
-}
+    .glassmorphism-count {
+        backdrop-filter: blur(30px);
+        background: linear-gradient(to bottom, rgba(10, 0, 146, 0.1), rgba(10, 0, 146, 0.5));
+    }
 
-.box {
-    @apply border-2 border-blue-700
-}
+    .weather-line {
+        @apply flex justify-between p-2 m-2 border-b-2 border-gray-500
+    }
 
-.images {
-    @apply border-2 w-full h-full border-gray-600 border-r-0 border-t-0 border-b-0 first:border-l-0
-}
+    .icons {
+        @apply w-6 h-6 mr-1
+    }
 
-.weather-text {
-    @apply border-2 w-full h-full border-gray-600 border-r-0 border-t-0 border-b-0 border-l-2 pl-2 first:border-l-0
-}
+    .box {
+        @apply border-2 border-blue-700
+    }
 
-.weather-grid {
-    @apply grid grid-flow-col grid-cols-4
+    .images {
+        @apply border-2 w-full h-full border-gray-600 border-r-0 border-t-0 border-b-0 first: border-l-0
+    }
+
+    .weather-text {
+        @apply border-2 w-full h-full border-gray-600 border-r-0 border-t-0 border-b-0 border-l-2 pl-2 first: border-l-0
+    }
+
+    .weather-grid {
+        @apply grid grid-flow-col grid-cols-4
+    }
 }
