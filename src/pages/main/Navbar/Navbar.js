@@ -1,8 +1,8 @@
-import Search from './Search'
-import Time from '../../services/Utils/dateFormat/Time';
-import Pinned from './Pinned';
-import Location from './Location';
-import DropDown from './DropDown';
+import Search from '../../../components/navbar/Search'
+import Time from '../../../services/Utils/dateFormat/Time';
+import Pinned from '../../../components/navbar/Pinned';
+import Location from '../../../components/navbar/Location';
+import DropDown from '../../../components/navbar/DropDown';
 
 function Navbar() {
 

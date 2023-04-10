@@ -5,8 +5,8 @@ import humidityIcon from '../../../assets/icons/forecastDetail/humidity.svg'
 import windIcon from '../../../assets/icons/forecastDetail/wind.svg'
 import devPointIcon from '../../../assets/icons/forecastDetail/dew-point.svg'
 import pressures from '../../../assets/icons/forecastDetail/pressures.svg'
-import Visibility from '../../../components/navbar/Visibility';
-import DayTimer from '../../../components/navbar/DayTimer';
+import Visibility from '../../../components/WeatherDetail/Visibility';
+import DayTimer from '../../../components/WeatherDetail/DayTimer';
 
 
 function WeatherDetail() {
