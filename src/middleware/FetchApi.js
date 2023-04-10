@@ -1,32 +1,16 @@
-import { createContext, useState, useEffect, useCallback } from "react";
+import { createContext, useState, useEffect, useCallback, useContext } from "react";
+import SearchContext from "../contexts/SearchContext";
 
 const FetchApiContext = createContext();
 
 export const FetchApiContextprovider = ({ children }) => {
+
+    const { handleKeyDown,searchClick,handleCity,setCityName,cityName } = useContext(SearchContext)
     const [getWeather, setGetWeather] = useState()
     const [getForecast, setGetForecast] = useState([])
-    const [cityName, setCityName] = useState('')
-    const [name, setName] = useState('')
     const [weatherCondition, setWeatherCondition] = useState('');
 
-    // search button
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault()
-            setCityName(name);
-        }
-    };
-    const handleCity = (e) => {
-        e.preventDefault()
-        const searchName = e.target.value
-        const upperCityName = searchName.charAt(0).toUpperCase() + searchName.slice(1).toLowerCase()
-        setName(upperCityName)
-    };
-    const searchClick = (e) => {
-        e.preventDefault()
-        setCityName(name);
-    }
-    // search button
+
     const getLocationAndSetCityName = useCallback(() => {
         navigator.geolocation.getCurrentPosition(async (position) => {
             const { latitude, longitude } = position.coords;
