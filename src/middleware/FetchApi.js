@@ -90,7 +90,7 @@ export const FetchApiContextprovider = ({ children }) => {
     const humidity = Math.round(detail.reduce((humidity, item) => humidity + item.humidity, 0) / detail.length);
     const pressure = Math.round(detail.reduce((pressure, item) => pressure + item.pressure, 0) / detail.length);
 
-    const visibility = Math.round(detail.reduce((visibility, item) => visibility + item.visibility, 0) / detail.length) / 1000;
+    const visibility = detail.reduce((visibility, item) => visibility + item.visibility, 0) / detail.length / 1000;
     const windSpeed = getWeather ? Math.round(getWeather.wind.speed * 10 /detail.length) : '';
     const dewPoint = Math.round((237.7 * (Math.log(humidity / 100) + ((17.27 * tempAvg) / (237.7 + tempAvg)))) / (17.27 - Math.log(humidity / 100) - ((17.27 * tempAvg) / (237.7 + tempAvg))));
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import FetchApiContext from '../../middleware/FetchApi';
 
 export default function TypingAnimation() {
@@ -7,8 +7,8 @@ export default function TypingAnimation() {
     const [isDeleting, setIsDeleting] = useState(false);
     const [loopNum, setLoopNum] = useState(0);
     const [typingSpeed, setTypingSpeed] = useState(150);
-
-    const words = [`${weatherCondition}`, `${visibility} km`];
+    const visibilityDistance = useMemo(() => Math.round(visibility), [visibility]);
+    const words = useMemo(() => [`${weatherCondition}`, `${visibilityDistance} km`], [weatherCondition, visibilityDistance]);
 
     useEffect(() => {
         const handleTyping = () => {
