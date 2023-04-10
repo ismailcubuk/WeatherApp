@@ -7,6 +7,7 @@ export const FetchApiContextprovider = ({ children }) => {
     const [getForecast, setGetForecast] = useState([])
     const [cityName, setCityName] = useState('')
     const [name, setName] = useState('')
+    const [weatherCondition, setWeatherCondition] = useState('');
 
     // search button
     const handleKeyDown = (e) => {
@@ -91,7 +92,7 @@ export const FetchApiContextprovider = ({ children }) => {
     const pressure = Math.round(detail.reduce((pressure, item) => pressure + item.pressure, 0) / detail.length);
 
     const visibility = detail.reduce((visibility, item) => visibility + item.visibility, 0) / detail.length / 1000;
-    const windSpeed = getWeather ? Math.round(getWeather.wind.speed * 10 /detail.length) : '';
+    const windSpeed = getWeather ? Math.round(getWeather.wind.speed * 10 / detail.length) : '';
     const dewPoint = Math.round((237.7 * (Math.log(humidity / 100) + ((17.27 * tempAvg) / (237.7 + tempAvg)))) / (17.27 - Math.log(humidity / 100) - ((17.27 * tempAvg) / (237.7 + tempAvg))));
 
     const today = new Date();
@@ -116,7 +117,7 @@ export const FetchApiContextprovider = ({ children }) => {
     // PİNNED CİTY
     const [pinnedCity, setPinnedCity] = useState([]);
     const [shows, setShows] = useState(false)
-    
+
     const KEY_PINNED_CITY = "pinnedCity";
     useEffect(() => {
         const savedPinnedCity = localStorage.getItem(KEY_PINNED_CITY);
@@ -155,7 +156,6 @@ export const FetchApiContextprovider = ({ children }) => {
 
 
 
-    const [weatherCondition, setWeatherCondition] = useState('');
 
     const data = {
         weatherCondition,
