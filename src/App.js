@@ -1,6 +1,7 @@
 import Icons from "./assets/Icons";
 import Navbar from "./components/navbar/Navbar";
 import Toast from "./components/navbar/Toast";
+import TypingAnimation from "./components/navbar/TypingAnimation";
 import CurrentWeather from "./pages/main/LeftSide/CurrentWeather";
 import WeatherDetail from "./pages/main/LeftSide/WeatherDetail";
 import Forecast from "./pages/main/RightSide/Forecast";

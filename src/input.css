@@ -83,15 +83,18 @@
     :root .count-animation {
         line-height: 1em;
     }
+
     .count-animation {
         display: inline-flex;
     }
-    .count-animation > * {
+
+    .count-animation>* {
         height: 1em;
         display: inline-block;
         overflow-y: hidden;
     }
-    .count-animation > *:before {
+
+    .count-animation>*:before {
         position: relative;
         content: "0\A 1\A 2\A 3\A";
         white-space: pre;
@@ -99,9 +102,28 @@
         text-align: center;
         transition: all 1s cubic-bezier(1, 0, 0, 1);
     }
+
     .img-drop-shadow {
         --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 1));
         filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
     }
 
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+    }
+
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+    }
+
+    h1 {
+        border-right: 0.1em solid;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: typing 1s steps(30, end), blink 0.5s step-end infinite;
+    }
 }

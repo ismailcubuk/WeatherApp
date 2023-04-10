@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import visibilityIcon from '../../assets/icons/forecastDetail/visibility.svg'
 import FetchApiContext from '../../middleware/FetchApi'
+import TypingAnimation from './TypingAnimation';
 
 export default function Visibility() {
-    const { visibility } = useContext(FetchApiContext);
-    const [weatherCondition, setWeatherCondition] = useState('');
+    const { visibility,weatherCondition, setWeatherCondition } = useContext(FetchApiContext);
 
     useEffect(() => {
         if (visibility >= 8) {
@@ -31,7 +31,7 @@ export default function Visibility() {
                 </p>
             </div>
             <div className='flex gap-2'>
-                <p>{weatherCondition}</p>
+                <TypingAnimation/>
             </div>
         </div>
     )

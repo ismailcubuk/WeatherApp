@@ -155,8 +155,11 @@ export const FetchApiContextprovider = ({ children }) => {
 
 
 
+    const [weatherCondition, setWeatherCondition] = useState('');
 
     const data = {
+        weatherCondition,
+        setWeatherCondition,
         shows,
         sunset,
         sunrise,
