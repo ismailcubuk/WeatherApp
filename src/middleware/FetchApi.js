@@ -99,43 +99,6 @@ export const FetchApiContextprovider = ({ children }) => {
 
 
     // PİNNED CİTY
-    const [pinnedCity, setPinnedCity] = useState([]);
-    const [shows, setShows] = useState(false)
-
-    const KEY_PINNED_CITY = "pinnedCity";
-    useEffect(() => {
-        const savedPinnedCity = localStorage.getItem(KEY_PINNED_CITY);
-        if (savedPinnedCity) {
-            setPinnedCity(JSON.parse(savedPinnedCity));
-        }
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem(KEY_PINNED_CITY, JSON.stringify(pinnedCity));
-    }, [pinnedCity]);
-
-    const createCityPinned = () => {
-        const newCityName = cityName;
-        if (pinnedCity.length < 3) {
-            if (!pinnedCity.some((city) => city.name === newCityName)) {
-                const newCity = {
-                    id: Date.now(),
-                    name: newCityName,
-                };
-                setShows(true)
-                setPinnedCity([...pinnedCity, newCity]);
-            }
-        }
-    };
-
-    const deleteCityPinned = (id) => {
-        const updatePinnedCity = pinnedCity.filter((city) => city.id !== id);
-        setPinnedCity(updatePinnedCity);
-    };
-
-    const PinnedCityLocation = (id) => {
-        setCityName(id);
-    };
 
 
 
@@ -144,16 +107,11 @@ export const FetchApiContextprovider = ({ children }) => {
     const data = {
         weatherCondition,
         setWeatherCondition,
-        shows,
         sunset,
         sunrise,
         handleCity,
         searchClick,
         getLocationAndSetCityName,
-        PinnedCityLocation,
-        deleteCityPinned,
-        pinnedCity,
-        createCityPinned,
         handleKeyDown,
         forecastTemp,
         forecastIcons,

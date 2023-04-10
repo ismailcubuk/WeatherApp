@@ -18,4 +18,5 @@ root.render(
                         </FetchApiContextprovider>
                 </PinCityContextprovider>
         </SearchContextprovider>
+
 );

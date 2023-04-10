@@ -2,10 +2,11 @@ import React, { useContext } from 'react'
 import pin from '../../assets/icons/pin/pin.svg'
 import x from '../../assets/icons/pin/x.svg'
 import FetchApiContext from '../../middleware/FetchApi'
+import PinCityContext from '../../contexts/PinCityContext'
 
 export default function Pinned() {
 
-    const { deleteCityPinned, pinnedCity, PinnedCityLocation } = useContext(FetchApiContext)
+    const { deleteCityPinned, pinnedCity, PinnedCityLocation } = useContext(PinCityContext)
     return (
         <div className='flex gap-5 items-center border-none'>
             {pinnedCity.map((city) => (

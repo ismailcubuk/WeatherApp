@@ -7,9 +7,11 @@ import del from '../../assets/icons/pin/del.svg'
 import del2 from '../../assets/icons/pin/del2.svg'
 import arrowDown from '../../assets/icons/pin/arrowDown.svg'
 import FetchApiContext from '../../middleware/FetchApi';
+import PinCityContext from '../../contexts/PinCityContext'
 
 export default function DropDown() {
-    const { deleteCityPinned, pinnedCity, PinnedCityLocation, city } = useContext(FetchApiContext);
+    const { city } = useContext(FetchApiContext);
+    const { deleteCityPinned, pinnedCity, PinnedCityLocation } = useContext(PinCityContext);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef(null);

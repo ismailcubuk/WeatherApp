@@ -11,15 +11,15 @@ function App() {
     <div className=" bg-bg-image text-black flex flex-col justify-between md:h-screen">
       <div className=" bg-bg-image flex flex-col justify-around md:h-screen">
         <Navbar />
-          <div className="flex flex-col-reverse items-center mt-20 // md:flex-row xl:justify-around">
-            <CurrentWeather />
-            <Icons />
-          </div>
-          <div className="md:flex md:gap-1 xl:justify-around">
-            <WeatherDetail />
-            <Forecast />
-          </div>
-          <Toast />
+        <div className="flex flex-col-reverse items-center mt-20 // md:flex-row xl:justify-around">
+          <CurrentWeather />
+          <Icons />
+        </div>
+        <div className="md:flex md:gap-1 xl:justify-around">
+          <WeatherDetail />
+          <Forecast />
+        </div>
+        <Toast />
       </div>
     </div>
   );
