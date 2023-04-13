@@ -19,7 +19,7 @@ export default function TypingAnimation() {
             setTypingSpeed(isDeleting ? 50 : 150);
 
             if (!isDeleting && text === fullText) {
-                setTimeout(() => setIsDeleting(true), 500);
+                setTimeout(() => setIsDeleting(true), 2000);
             } else if (isDeleting && text === "") {
                 setIsDeleting(false);
                 setLoopNum((loopNum) => loopNum + 1);

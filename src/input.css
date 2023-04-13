@@ -10,11 +10,16 @@
         border-radius: 8px;
         border: none;
     }
+    .glassmorphism-toast {
+        backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+        border: none;
+    }
 
     .glassmorphism-nav {
         border: 1px solid rgba(150, 150, 150, 0.3);
         background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
-        border-radius: 8px;
         border: none;
     }
 
@@ -108,22 +113,5 @@
         filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
     }
 
-    @keyframes typing {
-        from {
-            width: 0;
-        }
-    }
-
-    @keyframes blink {
-        50% {
-            border-color: transparent;
-        }
-    }
-
-    h1 {
-        border-right: 0.1em solid;
-        white-space: nowrap;
-        overflow: hidden;
-        animation: typing 1s steps(30, end), blink 0.5s step-end infinite;
-    }
+    .overlaye {}
 }
