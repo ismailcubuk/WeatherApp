@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
-import FetchApiContext from '../../middleware/FetchApi';
 import sunsetIcon from '../../assets/icons/forecastDetail/sunset.svg'
 import sunriseIcon from '../../assets/icons/forecastDetail/sunrise.svg'
 import sun from '../../assets/icons/forecastDetail/sun.svg'
+import WeatherContext from '../../contexts/WeatherContext';
 
 export default function DayTimer() {
-    const { sunset, sunrise } = useContext(FetchApiContext);
+    const { sunset, sunrise } = useContext(WeatherContext);
     const [formattedSunrise, setFormattedSunrise] = useState('');
     const [formattedSunset, setFormattedSunset] = useState('');
 
