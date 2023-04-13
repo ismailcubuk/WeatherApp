@@ -21,5 +21,4 @@ root.render(
                         </FetchLocationprovider>
                 </PinCityContextprovider>
         </SearchContextprovider>
-
 );
