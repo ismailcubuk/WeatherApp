@@ -6,14 +6,13 @@ const FetchApiContext = createContext();
 
 export const FetchApiContextprovider = ({ children }) => {
 
-    const { handleKeyDown,searchClick,handleCity,cityName } = useContext(SearchContext);
+    const { handleKeyDown, searchClick, handleCity, cityName } = useContext(SearchContext);
     const { getLocationAndSetCityName } = useContext(FetchLocation);
 
     const [getWeather, setGetWeather] = useState()
     const [getForecast, setGetForecast] = useState([])
     const [weatherCondition, setWeatherCondition] = useState('');
     const [detail, setDetail] = useState([])
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -83,14 +82,6 @@ export const FetchApiContextprovider = ({ children }) => {
     const feelsLike = getWeather ? Math.round(getWeather.main.feels_like) : '';
     const country = getWeather ? getWeather.sys.country : '';
     const city = getWeather ? getWeather.name : '';
-
-
-
-    // PİNNED CİTY
-
-
-
-
 
     const data = {
         weatherCondition,

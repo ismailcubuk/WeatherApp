@@ -9,6 +9,7 @@ export default function Search() {
             <input
                 className=' pl-3 pr-3 w-7/12 rounded-lg h-full text-xl min-w-[170px] font-bold outline-0 bg-transparent '
                 type="text"
+                autoComplete='off'
                 id="search"
                 name="search"
                 onChange={handleCity}

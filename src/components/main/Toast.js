@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import FetchApiContext from '../../middleware/FetchApi';
+import PinCityContext from '../../contexts/PinCityContext';
 
 export default function Toast() {
-    const { pinnedCity, city, shows } = useContext(FetchApiContext);
+    const { city } = useContext(FetchApiContext);
+    const { pinnedCity, shows } = useContext(PinCityContext);
     const [progress, setProgress] = useState();
     const [showToast, setShowToast] = useState(false);
 
