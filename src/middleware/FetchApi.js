@@ -52,8 +52,6 @@ export const FetchApiContextprovider = ({ children }) => {
         fetchData();
     }, [cityName]);
     // DATE
-    const sunrise = getWeather ? getWeather.sys.sunrise : '';
-    const sunset = getWeather ? getWeather.sys.sunset : '';
 
     const temp = getWeather ? Math.round(getWeather.main.temp) : '';
     const tempAvg = Math.round(detail.reduce((acc, item) => acc + item.temp, 0) / detail.length);
@@ -84,10 +82,9 @@ export const FetchApiContextprovider = ({ children }) => {
     const city = getWeather ? getWeather.name : '';
 
     const data = {
+        getWeather,
         weatherCondition,
         setWeatherCondition,
-        sunset,
-        sunrise,
         handleCity,
         searchClick,
         getLocationAndSetCityName,
