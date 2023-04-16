@@ -48,7 +48,7 @@ export default function Icons() {
 
     return (
         <div className='flex justify-center w-3/6 mb-5 mt-5 md:mb-0 md:mt-0 md:w-1/2 xl:w-5/12 ' >
-            <img src={image} className=' w-full h-full img-drop-shadow md:w-3/5' />
+            <img src={image} alt='icons' className=' w-full h-full img-drop-shadow md:w-3/5' />
         </div>
     )
 }

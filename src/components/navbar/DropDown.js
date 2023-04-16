@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import dropDown from '../../assets/icons/pin/dropDown.svg'
 import pin from '../../assets/icons/pin/pin.svg'
 import x from '../../assets/icons/pin/x.svg'
 import arrowDown from '../../assets/icons/pin/arrowDown.svg'
@@ -65,24 +64,3 @@ export default function DropDown() {
         </div>
     );
 }
-
-
-
-{/* DÜZENLENECEK BUTTON HOVERLAR */ }
-{/* {city === citys.name ?
-                                <button
-
-                                    className='flex items-center justify-center w-4/12 hover:opacity-90 bg-white opacity-40'
-                                    onClick={() => deleteCityPinned(citys.id)}
-                                >
-                                    <img src={x} alt='pin' className='w-6 h-6' />
-                                </button>
-                                :
-                                <button
-
-                                    className='opacity-40 flex items-center justify-center w-4/12 hover:opacity-90'
-                                    onClick={() => deleteCityPinned(citys.id)}
-                                >
-                                    <img src={x} alt='pin' className='w-6 h-6' />
-                                </button>
-                            } */}

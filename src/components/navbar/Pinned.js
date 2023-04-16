@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import pin from '../../assets/icons/pin/pin.svg'
 import x from '../../assets/icons/pin/x.svg'
-import FetchApiContext from '../../middleware/FetchApi'
 import PinCityContext from '../../contexts/PinCityContext'
 
 export default function Pinned() {

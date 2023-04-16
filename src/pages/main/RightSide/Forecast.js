@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect, useMemo } from 'react'
 import FetchApiContext from '../../../middleware/FetchApi'
 import clearDay from '../../../assets/icons/forecast/clear-day.svg';
 import clearNight from '../../../assets/icons/forecast/clear-night.svg';
@@ -20,7 +20,7 @@ import rain from '../../../assets/icons/forecast/rain.svg';
 
 export default function Forecast() {
     const { forecastTemp, forecastIcons, days } = useContext(FetchApiContext)
-    const icons = {
+    const icons = useMemo(() => ({
         "01d": clearDay,
         "01n": clearNight,
         "02d": cloudyDay,
@@ -39,13 +39,14 @@ export default function Forecast() {
         "13n": snowNight,
         "50d": mist,
         "50n": mist
-    };
+    }), []);
 
     const [forecastDays, setForecastDays] = useState([]);
 
     useEffect(() => {
         setForecastDays(forecastIcons.map(icon => icons[icon]));
-    }, [forecastIcons]);
+    }, [forecastIcons, icons]);
+    console.log(forecastIcons);
     const day = days.map((x, index) => { return <div key={index} >{x} </div> })
     const temperature = forecastTemp.map((x, index) => {
         return <div key={index}>
@@ -57,7 +58,7 @@ export default function Forecast() {
             <img alt='img' className='w-full h-full img-drop-shadow' src={x} />
         </div>
     })
-    
+
     return (
         <div className='md:w-1/2 xl:w-5/12 glassmorphism p-5 flex flex-col justify-around shadow-2xl' >
             <div className='grid grid-flow-col text-center grid-cols-4'>{day}</div>

@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useCallback, useContext } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import SearchContext from "../contexts/SearchContext";
 import FetchLocation from "./FetchLocation";
 
