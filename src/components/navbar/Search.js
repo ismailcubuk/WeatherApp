@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import FetchApiContext from '../../middleware/FetchApi'
 import search from '../../assets/icons/pin/search.svg'
 export default function Search() {
-    const { handleKeyDown, searchClick,handleCity } = useContext(FetchApiContext);
+    const { handleKeyDown, searchClick, handleCity } = useContext(FetchApiContext);
 
     return (
         <div className='h-3/6 w-6/12 min-w-[200px] flex justify-between items-center glassmorphism'>
