@@ -7,6 +7,7 @@ export const PinCityContextprovider = ({ children }) => {
     const {cityName, setCityName } = useContext(SearchContext)
     const [pinnedCity, setPinnedCity] = useState([]);
     const [shows, setShows] = useState(false)
+    const [showToast, setShowToast] = useState(false);
 
     const KEY_PINNED_CITY = "pinnedCity";
     useEffect(() => {
@@ -49,6 +50,8 @@ export const PinCityContextprovider = ({ children }) => {
         pinnedCity,
         createCityPinned,
         shows,
+        setShowToast,
+        showToast
     }
     return (
         <PinCityContext.Provider value={data}>

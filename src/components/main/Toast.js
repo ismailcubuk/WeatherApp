@@ -4,9 +4,8 @@ import PinCityContext from '../../contexts/PinCityContext';
 
 export default function Toast() {
     const { city } = useContext(FetchApiContext);
-    const { pinnedCity, shows } = useContext(PinCityContext);
+    const { pinnedCity, shows, setShowToast, showToast } = useContext(PinCityContext);
     const [progress, setProgress] = useState();
-    const [showToast, setShowToast] = useState(false);
 
 
     useEffect(() => {
@@ -33,8 +32,7 @@ export default function Toast() {
     }, [pinnedCity, progress]);
 
     return (
-        <div className={`glassmorphism-toast w-40 h-15 flex flex-col justify-center items-center absolute top-20 left-0 ${showToast ? 'block' : 'hidden'}`}>
-            <div className='text-center font-bold'> {city} Pinned</div>
+        <div className={`glassmorphism-toast w-full h-15 flex flex-col justify-center items-center absolute top-20 left-0 ${showToast ? 'block' : 'hidden'}`}>
             <div className="relative h-1 w-full bg-gray-300 rounded-full overflow-hidden">
                 <div className="absolute h-full bg-blue-500 rounded-full" style={{ width: `${progress / 20}%`, transition: 'width 0.1s linear' }}></div>
             </div>

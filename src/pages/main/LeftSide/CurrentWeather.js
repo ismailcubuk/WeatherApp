@@ -14,8 +14,8 @@ function CurrentWeather() {
                     {city}, {country}
                 </button>
                 <Hour />
-                <div className='text-8xl '> {temp}&deg;</div>
-                <div className='text-3xl font-semibold'> {weatherDescription} </div>
+                <div className='text-8xl'> {temp}&deg;</div>
+                <div className='text-3xl font-semibold text-center'> {weatherDescription} </div>
             </div>
         </div>
     )

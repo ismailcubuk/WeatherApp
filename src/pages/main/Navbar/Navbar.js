@@ -3,6 +3,7 @@ import Time from '../../../services/Utils/dateFormat/Time';
 import Pinned from '../../../components/navbar/Pinned';
 import Location from '../../../components/navbar/Location';
 import DropDown from '../../../components/navbar/DropDown';
+import Toast from '../../../components/main/Toast';
 
 function Navbar() {
 
@@ -20,6 +21,7 @@ function Navbar() {
                     <Location />
                 </div>
             </div>
+            <Toast/>
         </div>
     )
 }
