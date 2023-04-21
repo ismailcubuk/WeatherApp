@@ -8,9 +8,9 @@ export default function Pressure() {
     <div className="weather-line">
       <div className="flex">
         <img src={pressures} alt="pressureIcon" className="icons" />
-        Pressure
+        <p>Pressure</p>
       </div>
-      {pressure}mb
+      <p>{pressure}mb</p>
     </div>
   );
 }

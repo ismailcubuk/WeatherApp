@@ -36,7 +36,7 @@ export default function VisibilityCondition() {
           alt="visibilityIcon"
           className="icons visibility-icon"
         />
-        Visibility
+        <p>Visibility</p>
       </div>
       <TypingAnimation />
     </div>

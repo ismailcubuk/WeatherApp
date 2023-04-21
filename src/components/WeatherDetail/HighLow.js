@@ -8,9 +8,11 @@ export default function HighLow() {
     <div className="weather-line">
       <div className="flex">
         <img src={temperature} alt="temperature" className="icons" />
-        High/Low
+        <p>High/Low</p>
       </div>
-      {tempMax}&deg;/{tempMin}&deg;
+      <p>
+        {tempMax}&deg;/{tempMin}&deg;
+      </p>
     </div>
   );
 }

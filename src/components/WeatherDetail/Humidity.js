@@ -8,9 +8,9 @@ export default function Humidity() {
     <div className="weather-line">
       <div className="flex">
         <img src={humidityIcon} alt="humidityIcon" className="icons" />
-        Humidity
+        <p>Humidity</p>
       </div>
-      {humidity}%
+      <p>{humidity}%</p>
     </div>
   );
 }
