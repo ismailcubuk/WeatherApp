@@ -15,6 +15,8 @@ export default function Hour() {
         return () => clearInterval(interval);
     }, []);
     return (
-        <div className=''>as of {localHour}</div>
+        <div>
+            as of {localHour}
+        </div>
     )
 }
