@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import '../src/input.css'
+import '../src/index.css'
 import { FetchApiContextprovider } from './middleware/FetchApi';
 import { WeatherContextprovider } from './contexts/WeatherContext';
 import { SearchContextprovider } from './contexts/SearchContext';
