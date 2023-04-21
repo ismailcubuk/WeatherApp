@@ -19,7 +19,10 @@ export default function Pinned() {
                     </button>
                     <button
                         className='ml-2 rounded-full hover:bg-slate-400 opacity-40 hover:opacity-90'
-                        onClick={() => (deleteCityPinned(city.id), setShowToast(false))}
+                        onClick={() => {
+                            deleteCityPinned(city.id);
+                            setShowToast(false);
+                        }}
                     >
                         <img src={x} alt='pin' className='w-6 h-6 p-0.5' />
                     </button>
