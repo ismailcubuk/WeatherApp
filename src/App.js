@@ -1,8 +1,8 @@
-import Icons from "./assets/Icons";
 import Navbar from "./pages/main/Navbar/Navbar";
 import CurrentWeather from "./pages/main/LeftSide/CurrentWeather";
 import WeatherDetail from "./pages/main/LeftSide/WeatherDetail";
 import Forecast from "./pages/main/RightSide/Forecast";
+import Images from "./pages/main/RightSide/Images";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <Navbar />
         <div className="flex flex-col-reverse items-center mt-20 // md:flex-row xl:justify-around">
           <CurrentWeather />
-          <Icons />
+          <Images />
         </div>
         <div className="md:flex md:gap-1 xl:justify-around">
           <WeatherDetail />
