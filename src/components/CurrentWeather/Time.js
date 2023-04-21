@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from 'react'
 
-export default function Hour() {
-    const [localHour, setLocalHour] = useState('');
+export default function Time() {
+    const [localTime, setLocalTime] = useState('');
+
     useEffect(() => {
         const interval = setInterval(() => {
             const date = new Date();
             const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
                 hour: 'numeric',
                 minute: 'numeric',
             };
-            const localHour = date.toLocaleTimeString([], options);
-            setLocalHour(localHour);
+            const localTime = date.toLocaleTimeString([], options);
+            setLocalTime(localTime);
         }, 1000);
         return () => clearInterval(interval);
     }, []);
+    
     return (
         <div>
-            as of {localHour}
+            {localTime}
         </div>
     )
 }

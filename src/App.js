@@ -1,8 +1,8 @@
-import Navbar from "./pages/main/Navbar/Navbar";
 import CurrentWeather from "./pages/main/LeftSide/CurrentWeather";
+import Navbar from "./pages/main/Navbar/Navbar";
+import Images from "./pages/main/RightSide/Images";
 import WeatherDetail from "./pages/main/LeftSide/WeatherDetail";
 import Forecast from "./pages/main/RightSide/Forecast";
-import Images from "./pages/main/RightSide/Images";
 
 function App() {
   return (
