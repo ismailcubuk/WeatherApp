@@ -16,23 +16,19 @@
         background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
         border: none;
     }
-
     .glassmorphism-nav {
         border: 1px solid rgba(150, 150, 150, 0.3);
         background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
         border: none;
     }
-
     .glassmorphism-btn:hover {
         background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(10, 0, 146, 0.3));
     }
-
     .glassmorphism-count {
         backdrop-filter: blur(30px);
         background: linear-gradient(to bottom, rgba(10, 0, 146, 0.1), rgba(10, 0, 146, 0.5));
         border: none;
     }
-
     .weather-line {
         display: flex;
         padding: 0.5rem;
@@ -42,18 +38,15 @@
         border-color: rgb(107 114 128 / var(--tw-border-opacity));
         justify-content: space-between
     }
-
     .icons {
         width: 1.5rem;
         height: 1.5rem;
         margin-right: 0.25rem;
     }
-
     .box {
         border-width: 0.125rem;
         border-color: #1d4ed8;
     }
-
     .images {
         border-width: 0.125rem;
         width: 100%;
@@ -64,7 +57,6 @@
         border-bottom-width: 0;
         border-left-width: 0;
     }
-
     .weather-text {
         border-width: 0.125rem;
         width: 100%;
@@ -76,29 +68,22 @@
         border-left-width: 0.125rem;
         padding-left: 0.5rem;
     }
-
     .weather-grid {
         display: grid;
         grid-auto-flow: column;
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
-
-
-
     :root .count-animation {
         line-height: 1em;
     }
-
     .count-animation {
         display: inline-flex;
     }
-
     .count-animation>* {
         height: 1em;
         display: inline-block;
         overflow-y: hidden;
     }
-
     .count-animation>*:before {
         position: relative;
         content: "0\A 1\A 2\A 3\A";
@@ -107,11 +92,8 @@
         text-align: center;
         transition: all 1s cubic-bezier(1, 0, 0, 1);
     }
-
     .img-drop-shadow {
         --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 1));
         filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
     }
-
-    .overlaye {}
 }
