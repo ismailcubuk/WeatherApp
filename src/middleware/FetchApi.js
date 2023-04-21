@@ -62,17 +62,7 @@ export const FetchApiContextprovider = ({ children }) => {
     const windSpeed = useMemo(() => getWeather ? Math.round(getWeather.wind.speed * 10 / detail.length) : '', [getWeather, detail]);
     const dewPoint = useMemo(() => Math.round((237.7 * (Math.log(humidity / 100) + ((17.27 * tempAvg) / (237.7 + tempAvg)))) / (17.27 - Math.log(humidity / 100) - ((17.27 * tempAvg) / (237.7 + tempAvg)))), [humidity, tempAvg]);
 
-    const today = useMemo(() => new Date(), []);
-    const options = useMemo(() => ({ weekday: 'long' }), []);
-    const days = useMemo(() => {
-        const result = [];
-        for (let i = 1; i < 5; i++) {
-            const day = new Date(today);
-            day.setDate(today.getDate() + i);
-            result.push(day.toLocaleDateString('en-US', options));
-        }
-        return result;
-    }, [options, today]);
+    
 
     const forecastTemp = useMemo(() => getForecast.map(tempArr => tempArr.main.temp).map(temp => Math.round(temp)), [getForecast]);
     const forecastIcons = useMemo(() => getForecast.map(x => x.weather[0].icon), [getForecast]);
@@ -94,7 +84,6 @@ export const FetchApiContextprovider = ({ children }) => {
         handleKeyDown,
         forecastTemp,
         forecastIcons,
-        days,
         weatherIcon,
         dewPoint,
         windSpeed,
