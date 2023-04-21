@@ -1,5 +1,4 @@
 import Search from '../../../components/navbar/Search'
-import Time from '../../../services/Utils/dateFormat/Time';
 import Pinned from '../../../components/navbar/Pinned';
 import Location from '../../../components/navbar/Location';
 import DropDown from '../../../components/navbar/DropDown';

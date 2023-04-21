@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import FetchApiContext from '../../middleware/FetchApi';
 import PinCityContext from '../../contexts/PinCityContext';
 
 export default function Toast() {
-    const { city } = useContext(FetchApiContext);
     const { pinnedCity, shows, setShowToast, showToast } = useContext(PinCityContext);
     const [progress, setProgress] = useState();
 
@@ -15,7 +13,7 @@ export default function Toast() {
             const timeout = setTimeout(() => setShowToast(false), 2000);
             return () => clearTimeout(timeout);
         }
-    }, [pinnedCity, shows]);
+    }, [pinnedCity, shows, setShowToast]);
 
 
 

@@ -14,6 +14,7 @@ export default function Search() {
                 name="search"
                 onChange={handleCity}
                 onKeyDown={handleKeyDown}
+                placeholder='Search City'
             />
             <button onClick={searchClick} className='mr-2 opacity-40 hover:opacity-100'>
                 <img src={search} alt='search-icon' className='w-6 h-6' />

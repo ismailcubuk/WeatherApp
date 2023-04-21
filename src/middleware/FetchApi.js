@@ -21,7 +21,6 @@ export const FetchApiContextprovider = ({ children }) => {
                 fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`),
                 fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`)
             ]);
-
             const [weatherData, forecastData] = await Promise.all([weatherResponse.json(), forecastResponse.json()]);
 
             setGetWeather(weatherData);
