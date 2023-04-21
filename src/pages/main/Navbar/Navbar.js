@@ -2,7 +2,7 @@ import Search from '../../../components/navbar/Search'
 import Pinned from '../../../components/navbar/Pinned';
 import Location from '../../../components/navbar/Location';
 import DropDown from '../../../components/navbar/DropDown';
-import Toast from '../../../components/main/Toast';
+import Toast from '../../Toast/Toast';
 
 function Navbar() {
 
