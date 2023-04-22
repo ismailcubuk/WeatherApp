@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const SearchContext = createContext();
 
@@ -23,6 +23,7 @@ export const SearchContextprovider = ({ children }) => {
     e.preventDefault();
     setCityName(name);
   };
+
   const data = {
     handleKeyDown,
     searchClick,

@@ -3,6 +3,7 @@ import Navbar from "./pages/main/Navbar/Navbar";
 import Images from "./pages/main/RightSide/Images";
 import WeatherDetail from "./pages/main/LeftSide/WeatherDetail";
 import Forecast from "./pages/main/RightSide/Forecast";
+import MyComponent from "./components/navbar/MyComponent";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Forecast />
         </div>
       </div>
+      {/* <MyComponent/> */}
     </div>
   );
 }

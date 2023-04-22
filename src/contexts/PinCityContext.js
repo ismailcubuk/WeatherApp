@@ -24,7 +24,7 @@ export const PinCityContextprovider = ({ children }) => {
   const createCityPinned = () => {
     const newCityName = cityName;
     if (pinnedCity.length < 3) {
-      if (!pinnedCity.some((city) => city.name === newCityName)) {
+      if (!pinnedCity.some((city) => city.name === newCityName || newCityName === "")) {
         const newCity = {
           id: Date.now(),
           name: newCityName,
