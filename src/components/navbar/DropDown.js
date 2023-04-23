@@ -14,6 +14,13 @@ export default function DropDown() {
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
   useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.matchMedia("screen and (min-width: 768px)").matches) {
+        setIsMenuOpen(false);
+      }
+    });
+  }, []);
+  useEffect(() => {
     function handleClickOutside(event) {
       if (
         menuRef.current &&
@@ -24,9 +31,7 @@ export default function DropDown() {
         setIsMenuOpen(false);
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -35,6 +40,7 @@ export default function DropDown() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   return (
     <div className="w-48 h-14 rounded-md relative ">
       <span className="count-animation absolute flex justify-center items-center top-2 right-5 mt-[-15px] glassmorphism-count border-none opacity-80 rounded-3xl w-6 h-6">
