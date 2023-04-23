@@ -12,8 +12,7 @@ import FetchLocation from "./FetchLocation";
 const FetchApiContext = createContext();
 
 export const FetchApiContextprovider = ({ children }) => {
-  const { handleKeyDown, searchClick, handleCity, cityName } =
-    useContext(SearchContext);
+  const { cityName } = useContext(SearchContext);
   const { getLocationAndSetCityName } = useContext(FetchLocation);
 
   const [getWeather, setGetWeather] = useState();
@@ -177,10 +176,7 @@ export const FetchApiContextprovider = ({ children }) => {
     getWeather,
     weatherCondition,
     setWeatherCondition,
-    handleCity,
-    searchClick,
     getLocationAndSetCityName,
-    handleKeyDown,
     forecastTemp,
     forecastIcons,
     weatherIcon,
