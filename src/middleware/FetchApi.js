@@ -154,10 +154,7 @@ export const FetchApiContextprovider = ({ children }) => {
     [getForecast]
   );
 
-  const weatherIcon = useMemo(
-    () => (getWeather ? getWeather.weather[0].icon : ""),
-    [getWeather]
-  );
+
 
   const data = {
     getWeather,
@@ -166,7 +163,6 @@ export const FetchApiContextprovider = ({ children }) => {
     getLocationAndSetCityName,
     forecastTemp,
     forecastIcons,
-    weatherIcon,
     dewPoint,
     windSpeed,
     visibility,

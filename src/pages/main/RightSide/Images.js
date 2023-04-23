@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import FetchApiContext from "../../../middleware/FetchApi";
 import clearDay from "../../../assets/icons/forecast/clear-day.svg";
 import clearNight from "../../../assets/icons/forecast/clear-night.svg";
@@ -17,10 +17,14 @@ import cloudy from "../../../assets/icons/forecast/cloudy.svg";
 import rain from "../../../assets/icons/forecast/rain.svg";
 
 export default function Images() {
-  const { weatherIcon } = useContext(FetchApiContext);
+  const { getWeather } = useContext(FetchApiContext);
 
   const [image, setImage] = useState(null);
-
+  const weatherIcon = useMemo(
+    () => (getWeather ? getWeather.weather[0].icon : ""),
+    [getWeather]
+  );
+  
   useEffect(() => {
     const icons = {
       "01d": clearDay,
