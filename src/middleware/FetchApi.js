@@ -141,7 +141,6 @@ export const FetchApiContextprovider = ({ children }) => {
       ),
     [humidity, tempAvg]
   );
-
   const forecastTemp = useMemo(
     () =>
       getForecast
@@ -153,10 +152,15 @@ export const FetchApiContextprovider = ({ children }) => {
     () => getForecast.map((x) => x.weather[0].icon),
     [getForecast]
   );
-
-
+  const country = useMemo(
+    () => (getWeather ? getWeather.sys.country : ""),
+    [getWeather]
+  );
+  const city = useMemo(() => (getWeather ? getWeather.name : ""), [getWeather]);
 
   const data = {
+    city,
+    country,
     getWeather,
     weatherCondition,
     setWeatherCondition,
