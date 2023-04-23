@@ -1,8 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import FetchApiContext from "../../middleware/FetchApi";
 
 export default function FeelsLike() {
-  const { feelsLike } = useContext(FetchApiContext);
+  const { getWeather } = useContext(FetchApiContext);
+  const feelsLike = useMemo(
+    () => (getWeather ? Math.round(getWeather.main.feels_like) : ""),
+    [getWeather]
+  );
   return (
     <div>
       <div className="text-4xl font-semibold"> {feelsLike}&deg; </div>

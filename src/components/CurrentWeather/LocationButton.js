@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import pin from "../../assets/icons/pin/pin.svg";
 import PinCityContext from "../../contexts/PinCityContext";
-import FetchApiContext from "../../middleware/FetchApi";
+import WeatherContext from "../../contexts/WeatherContext";
 export default function LocationButton() {
-  const { city, country } = useContext(FetchApiContext);
+  const { city, country } = useContext(WeatherContext);
   const { createCityPinned } = useContext(PinCityContext);
   return (
     <button

@@ -154,23 +154,10 @@ export const FetchApiContextprovider = ({ children }) => {
     [getForecast]
   );
 
-  const weatherDescription = useMemo(
-    () => (getWeather ? getWeather.weather[0].description : ""),
-    [getWeather]
-  );
   const weatherIcon = useMemo(
     () => (getWeather ? getWeather.weather[0].icon : ""),
     [getWeather]
   );
-  const feelsLike = useMemo(
-    () => (getWeather ? Math.round(getWeather.main.feels_like) : ""),
-    [getWeather]
-  );
-  const country = useMemo(
-    () => (getWeather ? getWeather.sys.country : ""),
-    [getWeather]
-  );
-  const city = useMemo(() => (getWeather ? getWeather.name : ""), [getWeather]);
 
   const data = {
     getWeather,
@@ -188,10 +175,6 @@ export const FetchApiContextprovider = ({ children }) => {
     temp,
     tempMin,
     tempMax,
-    feelsLike,
-    country,
-    city,
-    weatherDescription,
   };
   return (
     <FetchApiContext.Provider value={data}>{children}</FetchApiContext.Provider>

@@ -1,15 +1,18 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useMemo } from "react";
 import FetchApiContext from "../middleware/FetchApi";
 
 const WeatherContext = createContext();
 export const WeatherContextprovider = ({ children }) => {
   const { getWeather } = useContext(FetchApiContext);
+  const country = useMemo(
+    () => (getWeather ? getWeather.sys.country : ""),
+    [getWeather]
+  );
+  const city = useMemo(() => (getWeather ? getWeather.name : ""), [getWeather]);
 
-  const sunrise = getWeather ? getWeather.sys.sunrise : "";
-  const sunset = getWeather ? getWeather.sys.sunset : "";
   const data = {
-    sunrise,
-    sunset,
+    country,
+    city,
   };
   return (
     <WeatherContext.Provider value={data}>{children}</WeatherContext.Provider>
