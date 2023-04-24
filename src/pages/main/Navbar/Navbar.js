@@ -12,10 +12,10 @@ function Navbar() {
         <div className="hidden md:flex font-bold text-xl items-center">
           <Pinned />
         </div>
-        <div className=" h-full hidden sm:flex md:hidden font-bold text-xl items-center  ">
+        <div className=" h-full hidden mbl:flex md:hidden font-bold text-xl items-center  ">
           <DropDown />
         </div>
-        <div className=" h-full sm:hidden font-bold text-xl items-center flex ">
+        <div className=" h-full mbl:hidden font-bold text-xl items-center flex ">
           <PhoneDropDown/>
         </div>
         <div className="h-full flex items-center justify-around ">
