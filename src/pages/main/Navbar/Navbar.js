@@ -3,6 +3,7 @@ import Pinned from "../../../components/navbar/Pinned";
 import Location from "../../../components/navbar/Location";
 import DropDown from "../../../components/navbar/DropDown";
 import Toast from "../../Toast/Toast";
+import PhoneDropDown from "../../../components/navbar/PhoneDropDown";
 
 function Navbar() {
   return (
@@ -11,8 +12,11 @@ function Navbar() {
         <div className="hidden md:flex font-bold text-xl items-center">
           <Pinned />
         </div>
-        <div className=" h-full md:hidden font-bold text-xl items-center flex ">
+        <div className=" h-full hidden sm:flex md:hidden font-bold text-xl items-center  ">
           <DropDown />
+        </div>
+        <div className=" h-full sm:hidden font-bold text-xl items-center flex ">
+          <PhoneDropDown/>
         </div>
         <div className="h-full flex items-center justify-around ">
           <Search />
