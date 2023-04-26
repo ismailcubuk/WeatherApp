@@ -8,6 +8,7 @@ import {
 } from "react";
 import SearchContext from "../contexts/SearchContext";
 import FetchLocation from "./FetchLocation";
+import { ApiKey, ForecastApiCall, Metric, WaetherApiCall } from "../Api";
 
 const FetchApiContext = createContext();
 
@@ -25,18 +26,20 @@ export const FetchApiContextprovider = ({ children }) => {
       if (!cityName) return;
       const [weatherResponse, forecastResponse] = await Promise.all([
         fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`
+          WaetherApiCall + cityName +  ApiKey + Metric
         ),
         fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=f816f1c7fc58061a8d4b99d210789fa3&units=metric`
+          ForecastApiCall + cityName + ApiKey + Metric
         ),
       ]);
       const [weatherData, forecastData] = await Promise.all([
         weatherResponse.json(),
         forecastResponse.json(),
       ]);
+      if(weatherData.cod===200){
+        setGetWeather(weatherData);
+      }
 
-      setGetWeather(weatherData);
 
       const filteredDetail = forecastData.list.slice(0, 9).map((item) => {
         return {

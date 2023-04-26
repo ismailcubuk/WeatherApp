@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect } from "react";
 import SearchContext from "../contexts/SearchContext";
+import { LocationApiCall } from "../Api";
 
 const FetchLocation = createContext();
 
@@ -10,7 +11,7 @@ export const FetchLocationprovider = ({ children }) => {
       const { latitude, longitude } = position.coords;
 
       const response = await fetch(
-        `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+       LocationApiCall + `latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
       );
       const data = await response.json();
 
