@@ -38,6 +38,8 @@ export const FetchApiContextprovider = ({ children }) => {
       ]);
       if(weatherData.cod===200){
         setGetWeather(weatherData);
+      }else{
+        alert("asd")
       }
 
 

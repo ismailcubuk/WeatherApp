@@ -7,7 +7,9 @@ export const PinCityContextprovider = ({ children }) => {
   const { cityName, setCityName } = useContext(SearchContext);
   const [pinnedCity, setPinnedCity] = useState([]);
   const [shows, setShows] = useState(false);
+  const [shows2, setShows2] = useState(false)
   const [showToast, setShowToast] = useState(false);
+  const [showToast2, setShowToast2] = useState(false);
 
   const KEY_PINNED_CITY = "pinnedCity";
   useEffect(() => {
@@ -32,8 +34,12 @@ export const PinCityContextprovider = ({ children }) => {
         setShows(true);
         setPinnedCity([...pinnedCity, newCity]);
       }
+    }else if(pinnedCity.length >= 3){
+      setShows2(true);
     }
   };
+  console.log("shows2toast",showToast2);
+  console.log("shows2",shows2);
 
   const deleteCityPinned = (id) => {
     const updatePinnedCity = pinnedCity.filter((city) => city.id !== id);
@@ -45,6 +51,10 @@ export const PinCityContextprovider = ({ children }) => {
   };
 
   const data = {
+    showToast2,
+    setShows2,
+    setShowToast2,
+    shows2,
     PinnedCityLocation,
     deleteCityPinned,
     pinnedCity,
