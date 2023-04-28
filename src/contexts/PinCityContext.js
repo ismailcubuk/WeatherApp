@@ -34,8 +34,8 @@ export const PinCityContextprovider = ({ children }) => {
         setShows(true);
         setPinnedCity([...pinnedCity, newCity]);
       }
-    }else if(pinnedCity.length >= 3){
-      if (!pinnedCity.some((city) => city.name === newCityName)){
+    }else if(pinnedCity.length === 3){
+      if (pinnedCity.some((city) => city.name === newCityName)){
         setShows2(true);
       }
     }
