@@ -40,8 +40,6 @@ export const PinCityContextprovider = ({ children }) => {
       }
     }
   };
-  console.log("shows2toast",showToast2);
-  console.log("shows2",shows2);
 
   const deleteCityPinned = (id) => {
     const updatePinnedCity = pinnedCity.filter((city) => city.id !== id);

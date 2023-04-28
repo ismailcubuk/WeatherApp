@@ -4,11 +4,11 @@ import PinCityContext from "../../contexts/PinCityContext";
 export default function FullCityToast() {
   const { pinnedCity, shows2, setShowToast2, showToast2,setShows2, cityName } =
     useContext(PinCityContext);
-  const [progress, setProgress] = useState();
+  const [progress2, setProgress2] = useState();
   useEffect(() => {
     if (shows2 === true) {
       setShowToast2(true);
-      setProgress(2000);
+      setProgress2(2000);
       const timeout = setTimeout(() => setShowToast2(false), 2000);
       const timeout2 = setTimeout(() => setShows2(false), 2000);
       return () => clearTimeout(timeout,timeout2);
@@ -17,13 +17,13 @@ export default function FullCityToast() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setProgress((prevProgress) => prevProgress - 100);
-      if (progress <= 0) {
+      setProgress2((prevProgress2) => prevProgress2 - 100);
+      if (progress2 <= 0) {
         clearInterval(intervalId);
       }
     }, 100);
     return () => clearInterval(intervalId);
-  }, [pinnedCity, progress]);
+  }, [pinnedCity, progress2]);
 
   return (
     <div
@@ -36,7 +36,7 @@ export default function FullCityToast() {
         <div
           className="absolute h-full bg-blue-500 rounded-full"
           style={{
-            width: `${progress / 20}%`,
+            width: `${progress2 / 20}%`,
             transition: "width 0.1s linear",
           }}
         />

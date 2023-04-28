@@ -15,12 +15,10 @@ const FetchApiContext = createContext();
 export const FetchApiContextprovider = ({ children }) => {
   const { cityName } = useContext(SearchContext);
   const { getLocationAndSetCityName } = useContext(FetchLocation);
-
   const [getWeather, setGetWeather] = useState();
   const [getForecast, setGetForecast] = useState([]);
   const [weatherCondition, setWeatherCondition] = useState("");
   const [detail, setDetail] = useState([]);
-
   const fetchData = useCallback(async () => {
     try {
       if (!cityName) return;
@@ -39,7 +37,7 @@ export const FetchApiContextprovider = ({ children }) => {
       if(weatherData.cod===200){
         setGetWeather(weatherData);
       }else{
-        alert("asd")
+        alert("City Not Found")
       }
 
 
