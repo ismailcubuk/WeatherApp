@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import PinCityContext from "../../contexts/PinCityContext";
 
 export default function FullCityToast() {
-  const { pinnedCity, shows2, setShowToast2, showToast2,setShows2 } =
+  const { pinnedCity, shows2, setShowToast2, showToast2,setShows2, cityName } =
     useContext(PinCityContext);
   const [progress, setProgress] = useState();
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function FullCityToast() {
       const timeout2 = setTimeout(() => setShows2(false), 2000);
       return () => clearTimeout(timeout,timeout2);
     }
-  }, [ shows2 ]);
+  }, [ shows2,cityName,pinnedCity,setShows2,setShowToast2 ]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {

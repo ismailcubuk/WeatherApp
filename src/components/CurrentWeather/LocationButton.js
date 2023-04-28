@@ -10,11 +10,11 @@ export default function LocationButton() {
     <div>
       <FullCityToast/>
       <button
-      className="text-2xl font-semibold flex mt-10 items-center"
+      className="text-2xl font-semibold flex mt-10 justify-center items-center"
       onClick={createCityPinned}
     >
       <img src={pin} alt="pin" className="icons" />
-      {city}, {country}
+      <div className="flex-shrink-0">{city}, {country}</div>
     </button>
     </div>
   );
