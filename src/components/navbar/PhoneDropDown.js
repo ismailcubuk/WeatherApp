@@ -2,11 +2,9 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import pin from "../../assets/icons/pin/pin.svg";
 import x from "../../assets/icons/pin/x.svg";
 import arrowDown from "../../assets/icons/pin/arrowDown.svg";
-import FetchApiContext from "../../middleware/FetchApi";
 import PinCityContext from "../../contexts/PinCityContext";
 
 export default function PhoneDropDown() {
-  const { city } = useContext(FetchApiContext);
   const { deleteCityPinned, pinnedCity, PinnedCityLocation, setShowToast } =
     useContext(PinCityContext);
 
