@@ -7,7 +7,6 @@ const FetchLocation = createContext();
 export const FetchLocationprovider = ({ children }) => {
   const { setCityName } = useContext(SearchContext);
   
-  // Define the function that gets the location and sets the city name
   const getLocationAndSetCityName = useCallback(() => {
     navigator.geolocation.getCurrentPosition(async (position) => {
       const { latitude, longitude } = position.coords;
