@@ -14,7 +14,7 @@ export default function Days() {
   }, [options, today]);
 
   return (
-    <div className="grid grid-flow-col text-center grid-cols-4 font-bold">
+    <div className="grid grid-flow-col text-center grid-cols-4 text-sm font-bold mbl:text-base ">
       {days.map((day, index) => {
         return <div key={index}>{day}</div>;
       })}
