@@ -5,9 +5,9 @@ export default function Search() {
     const { handleKeyDown, searchClick, handleCity } = useContext(SearchContext);
 
     return (
-        <div className='h-3/6 w-6/12 min-w-[200px] flex justify-between items-center glassmorphism'>
+        <div className='h-3/6 w-6/12 min-w-[150px] mbl:min-w-[200px] flex justify-between items-center glassmorphism'>
             <input
-                className=' pl-3 pr-3 w-7/12 rounded-lg h-full text-xl min-w-[170px] font-bold outline-0 bg-transparent '
+                className=' pl-3 pr-3 w-7/12 rounded-lg h-full text-xl min-w-[120px] mbl:min-w-[170px] font-bold outline-0 bg-transparent '
                 type="text"
                 autoComplete='off'
                 id="search"
