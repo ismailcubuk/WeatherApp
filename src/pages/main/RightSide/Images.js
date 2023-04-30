@@ -56,6 +56,7 @@ export default function Images() {
         src={image}
         alt="icons"
         className=" w-full h-full img-drop-shadow md:w-3/5"
+        loading="lazy"
       />
     </div>
   );
