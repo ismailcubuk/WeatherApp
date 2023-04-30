@@ -10,7 +10,7 @@ export default function LocationButton() {
     <div>
       <FullCityToast/>
       <button
-      className="text-2xl glassmorphism p-2 glassmorphism-btn font-semibold flex mt-10 justify-center items-center"
+      className="text-2xl glassmorphism p-2 glassmorphism-btn font-semibold flex mt-10 justify-center items-center "
       onClick={createCityPinned}
     >
       <img src={pin} alt="pin" className="icons" />
