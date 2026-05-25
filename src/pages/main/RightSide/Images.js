@@ -55,7 +55,7 @@ export default function Images() {
   }
 
   return (
-    <div className="flex min-h-[220px] w-full items-center justify-center rounded-lg border border-white/25 bg-white/10 p-5 backdrop-blur-sm md:h-full md:min-h-0">
+    <div className="flex min-h-[220px] w-full items-center justify-center rounded-lg border border-sky-50/20 bg-slate-900/5 p-5 backdrop-blur-sm md:h-full md:min-h-0">
       <img
         src={image}
         alt="icons"

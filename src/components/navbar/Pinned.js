@@ -10,7 +10,7 @@ export default function Pinned() {
     <div className="flex min-w-0 items-center gap-2 border-none">
       {pinnedCity.map((city) => (
         <div
-          className="flex h-11 max-w-[190px] items-center rounded-lg border border-white/45 bg-white/65 px-2 shadow-lg shadow-slate-950/10 backdrop-blur-xl transition hover:bg-white/85"
+          className="flex h-11 max-w-[190px] items-center rounded-lg border border-sky-50/30 bg-slate-100/52 px-2 shadow-lg shadow-slate-950/10 backdrop-blur-xl transition hover:bg-slate-50/72"
           key={city.id}
         >
           <button

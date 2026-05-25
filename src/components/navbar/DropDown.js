@@ -48,7 +48,7 @@ export default function DropDown() {
 
   return (
     <div className="relative h-11 w-52 rounded-lg">
-      <span className="count-animation absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full border border-white/70 bg-gradient-to-br from-amber-200 to-sky-200 text-sm font-black text-slate-900 shadow-md shadow-slate-950/15">
+      <span className="count-animation absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full border border-sky-50/40 bg-gradient-to-br from-slate-100/80 to-sky-200/70 text-sm font-black text-slate-900 shadow-md shadow-slate-950/15">
         <span
           className="flex justify-center"
           style={{ "--value": pinnedCity.length }}
@@ -56,7 +56,7 @@ export default function DropDown() {
       </span>
       <button
         type="button"
-        className="flex h-full w-full items-center justify-between rounded-lg border border-white/60 bg-white/80 px-3 shadow-lg shadow-slate-950/10 backdrop-blur-xl transition hover:bg-white/95"
+        className="flex h-full w-full items-center justify-between rounded-lg border border-sky-50/30 bg-slate-100/55 px-3 shadow-lg shadow-slate-950/10 backdrop-blur-xl transition hover:bg-slate-50/75"
         onClick={toggleMenu}
         ref={buttonRef}
         aria-expanded={isMenuOpen}
@@ -73,7 +73,7 @@ export default function DropDown() {
       </button>
       {isMenuOpen && (
         <div
-          className="absolute left-0 top-full z-50 mt-2 w-64 overflow-hidden rounded-lg border border-white/70 bg-white/90 p-2 shadow-2xl shadow-slate-950/25 backdrop-blur-2xl"
+          className="absolute left-0 top-full z-50 mt-2 w-64 overflow-hidden rounded-lg border border-sky-50/35 bg-slate-100/82 p-2 shadow-2xl shadow-slate-950/25 backdrop-blur-2xl"
           ref={menuRef}
           role="menu"
         >
@@ -87,7 +87,7 @@ export default function DropDown() {
             </div>
           )}
           {pinnedCity.map((city) => (
-            <div className="group flex items-center rounded-lg transition hover:bg-sky-50" key={city.id}>
+            <div className="group flex items-center rounded-lg transition hover:bg-slate-50/55" key={city.id}>
               <button
                 type="button"
                 className="flex min-w-0 flex-1 items-center gap-2 px-3 py-2.5 text-sm font-bold text-slate-950"
@@ -104,7 +104,7 @@ export default function DropDown() {
               </button>
               <button
                 type="button"
-                className="mr-1 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg opacity-55 transition hover:bg-red-50 hover:opacity-100"
+                className="mr-1 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg opacity-55 transition hover:bg-rose-100/45 hover:opacity-100"
                 onClick={() => {
                   deleteCityPinned(city.id);
                   setShowToast(false);

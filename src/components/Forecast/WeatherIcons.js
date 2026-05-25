@@ -53,7 +53,7 @@ export default function WeatherIcons() {
     <div className="grid grid-flow-col grid-cols-4 gap-2 text-center">
       {forecastDays.map((x, index) => {
         return (
-          <div className="flex aspect-square items-center justify-center rounded-lg bg-white/30 p-2" key={index}>
+          <div className="flex aspect-square items-center justify-center rounded-lg bg-slate-100/25 p-2" key={index}>
             <img alt="img" className="h-full w-full img-drop-shadow" src={x} />
           </div>
         );

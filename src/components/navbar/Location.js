@@ -5,7 +5,7 @@ export default function Location() {
     const { getLocationAndSetCityName } = useContext(FetchApiContext)
     return (
         <button
-            className='flex h-11 w-11 items-center justify-center rounded-lg border border-white/45 bg-white/70 shadow-lg shadow-slate-950/10 backdrop-blur-xl transition hover:bg-white/90'
+            className='flex h-11 w-11 items-center justify-center rounded-lg border border-sky-50/30 bg-slate-100/55 shadow-lg shadow-slate-950/10 backdrop-blur-xl transition hover:bg-slate-50/75'
             onClick={getLocationAndSetCityName}
             aria-label='Use current location'
         >

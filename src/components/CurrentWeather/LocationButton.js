@@ -12,7 +12,7 @@ export default function LocationButton() {
     <div>
       <FullCityToast/>
       <button
-      className="glassmorphism-btn mb-5 flex max-w-full items-center justify-center rounded-lg border border-white/45 bg-white/55 px-4 py-2 text-base font-bold text-slate-950 shadow-lg shadow-slate-950/10 transition disabled:cursor-not-allowed disabled:opacity-55 mbl:text-lg"
+      className="glassmorphism-btn mb-5 flex max-w-full items-center justify-center rounded-lg border border-sky-50/30 bg-slate-100/42 px-4 py-2 text-base font-bold text-slate-950 shadow-lg shadow-slate-950/10 transition disabled:cursor-not-allowed disabled:opacity-55 mbl:text-lg"
       onClick={createCityPinned}
       disabled={!city}
     >
