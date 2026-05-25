@@ -4,8 +4,12 @@ import FetchApiContext from '../../middleware/FetchApi'
 export default function Location() {
     const { getLocationAndSetCityName } = useContext(FetchApiContext)
     return (
-        <button className='glassmorphism opacity-40 hover:opacity-100' onClick={getLocationAndSetCityName}>
-            <img src={location} alt='location' className='w-6 h-6 m-1  ' />
+        <button
+            className='flex h-11 w-11 items-center justify-center rounded-lg border border-white/45 bg-white/70 shadow-lg shadow-slate-950/10 backdrop-blur-xl transition hover:bg-white/90'
+            onClick={getLocationAndSetCityName}
+            aria-label='Use current location'
+        >
+            <img src={location} alt='location' className='h-6 w-6' />
         </button>
     )
 }

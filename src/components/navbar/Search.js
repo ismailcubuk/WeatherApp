@@ -5,9 +5,9 @@ export default function Search() {
     const { handleKeyDown, searchClick, handleCity } = useContext(SearchContext);
 
     return (
-        <div className='h-3/6 w-6/12 min-w-[150px] mbl:min-w-[200px] flex justify-between items-center glassmorphism'>
+        <div className='flex h-11 w-full min-w-0 flex-1 items-center justify-between rounded-lg border border-white/45 bg-white/70 shadow-lg shadow-slate-950/10 backdrop-blur-xl md:min-w-[280px] md:max-w-[360px]'>
             <input
-                className=' pl-3 pr-3 w-7/12 rounded-lg h-full text-xl min-w-[120px] mbl:min-w-[170px] font-bold outline-0 bg-transparent '
+                className='h-full min-w-0 flex-1 rounded-lg bg-transparent px-3 text-sm font-semibold text-slate-950 outline-0 placeholder:text-slate-500 mbl:text-base'
                 type="text"
                 autoComplete='off'
                 id="search"
@@ -16,7 +16,11 @@ export default function Search() {
                 onKeyDown={handleKeyDown}
                 placeholder='Search City'
             />
-            <button onClick={searchClick} className='mr-2 opacity-40 hover:opacity-100'>
+            <button
+                onClick={searchClick}
+                className='mr-1 flex h-9 w-9 items-center justify-center rounded-lg bg-sky-950/90 opacity-90 transition hover:bg-sky-800 hover:opacity-100'
+                aria-label='Search city'
+            >
                 <img src={search} alt='search-icon' className='w-6 h-6' />
             </button>
 

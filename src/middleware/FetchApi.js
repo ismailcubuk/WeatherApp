@@ -117,6 +117,10 @@ export const FetchApiContextprovider = ({ children }) => {
     [getWeather]
   );
   const city = useMemo(() => (getWeather ? getWeather.name : ""), [getWeather]);
+  const weatherMain = useMemo(
+    () => (getWeather ? getWeather.weather[0].main.toLowerCase() : "default"),
+    [getWeather]
+  );
 
   const data = {
     city,
@@ -124,6 +128,7 @@ export const FetchApiContextprovider = ({ children }) => {
     error,
     getWeather,
     isLoading,
+    weatherMain,
     weatherCondition,
     setWeatherCondition,
     getLocationAndSetCityName,

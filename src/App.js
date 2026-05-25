@@ -7,14 +7,16 @@ import Forecast from "./pages/main/RightSide/Forecast";
 import FetchApiContext from "./middleware/FetchApi";
 
 function App() {
-  const { error, isLoading } = useContext(FetchApiContext);
+  const { error, isLoading, weatherMain } = useContext(FetchApiContext);
 
   return (
-    <div className="bg-bg-image bg-cover text-black flex flex-col justify-between min-h-screen" >
-      <div className="backdrop-blur-[5px] bg-gray-900/20 flex flex-col justify-between min-h-screen ">
+    <div
+      className={`weather-shell weather-${weatherMain} min-h-screen bg-bg-image bg-cover bg-center text-gray-950`}
+    >
+      <div className="weather-overlay min-h-screen backdrop-blur-[3px]">
         <Navbar />
         {error && !isLoading && (
-          <div className="mx-4 mt-4 glassmorphism p-3 text-center font-semibold">
+          <div className="mx-auto mt-4 w-[calc(100%-2rem)] max-w-5xl glassmorphism p-3 text-center font-semibold text-red-950">
             {error}
           </div>
         )}
@@ -26,14 +28,16 @@ function App() {
             </div>
           </div>
         )}
-        <div className="flex flex-col-reverse items-center relative md:flex-row xl:justify-around h-full">
-          <CurrentWeather />
-          <Images />
-        </div>
-        <div className="md:flex md:gap-1 xl:justify-around">
-          <WeatherDetail />
-          <Forecast />
-        </div>
+        <main className="mx-auto flex min-h-[calc(100vh-5rem)] w-full max-w-7xl flex-col gap-5 px-4 pb-5 pt-5 md:px-6 xl:px-8">
+          <section className="grid flex-1 items-center gap-5 md:grid-cols-[1.05fr_0.95fr]">
+            <CurrentWeather />
+            <Images />
+          </section>
+          <section className="grid gap-5 md:grid-cols-[1.08fr_0.92fr]">
+            <WeatherDetail />
+            <Forecast />
+          </section>
+        </main>
       </div>
     </div>
   );

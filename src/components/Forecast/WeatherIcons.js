@@ -50,11 +50,11 @@ export default function WeatherIcons() {
   }, [forecastIcons, icons]);
 
   return (
-    <div className="grid grid-flow-col text-center grid-cols-4">
+    <div className="grid grid-flow-col grid-cols-4 gap-2 text-center">
       {forecastDays.map((x, index) => {
         return (
-          <div key={index}>
-            <img alt="img" className="w-full h-full img-drop-shadow" src={x} />
+          <div className="flex aspect-square items-center justify-center rounded-lg bg-white/30 p-2" key={index}>
+            <img alt="img" className="h-full w-full img-drop-shadow" src={x} />
           </div>
         );
       })}

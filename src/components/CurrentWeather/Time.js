@@ -19,5 +19,9 @@ export default function Time() {
     return () => clearInterval(interval);
   }, []);
 
-  return <div>{localTime}</div>;
+  return (
+    <div className="mb-3 text-sm font-semibold uppercase tracking-[0.08em] text-slate-700">
+      {localTime}
+    </div>
+  );
 }

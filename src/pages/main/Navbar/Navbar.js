@@ -7,24 +7,31 @@ import PhoneDropDown from "../../../components/navbar/PhoneDropDown";
 
 function Navbar() {
   return (
-    <div className="glassmorphism-nav w-full">
-      <div className="flex pl-4 pr-4 justify-between items-center h-20 w-full">
-        <div className="hidden md:flex font-bold text-xl items-center">
-          <Pinned />
+    <header className="glassmorphism-nav sticky top-0 z-30 w-full">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-4 py-3 md:h-20 md:flex-row md:items-center md:justify-between md:px-6 md:py-0 xl:px-8">
+        <div className="flex w-full items-center justify-between gap-3 md:min-w-0 md:flex-1">
+          <div className="hidden min-w-0 flex-1 items-center md:flex">
+            <Pinned />
+          </div>
+          <div className="hidden h-11 items-center mbl:flex md:hidden">
+            <DropDown />
+          </div>
+          <div className="flex h-11 items-center mbl:hidden">
+            <PhoneDropDown />
+          </div>
+          <div className="flex md:hidden">
+            <Location />
+          </div>
         </div>
-        <div className=" h-full hidden mbl:flex md:hidden font-bold text-xl items-center  ">
-          <DropDown />
-        </div>
-        <div className=" h-full mbl:hidden font-bold text-xl items-center flex ">
-          <PhoneDropDown/>
-        </div>
-        <div className="h-full flex items-center justify-around ">
+        <div className="flex w-full min-w-0 items-center gap-2 md:w-auto md:flex-none">
           <Search />
-          <Location />
+          <div className="hidden md:flex">
+            <Location />
+          </div>
         </div>
       </div>
       <Toast />
-    </div>
+    </header>
   );
 }
 

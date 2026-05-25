@@ -9,8 +9,12 @@ export default function FeelsLike() {
   );
   return (
     <div>
-      <div className="text-4xl font-semibold"> {feelsLike}&deg; </div>
-      <p className="text-sm text-gray-500 ">feels like</p>
+      <div className="text-5xl font-black leading-none text-slate-950">
+        {feelsLike}&deg;
+      </div>
+      <p className="mt-1 text-sm font-bold uppercase tracking-[0.08em] text-slate-600">
+        feels like
+      </p>
     </div>
   );
 }

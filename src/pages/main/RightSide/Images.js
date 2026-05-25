@@ -50,12 +50,16 @@ export default function Images() {
     setImage(icons[weatherIcon]);
   }, [weatherIcon]);
 
+  if (!image) {
+    return <div className="hidden md:block" />;
+  }
+
   return (
-    <div className="flex justify-center w-3/6 mb-5 mt-5 md:mb-0 md:mt-0 md:w-1/2 xl:w-5/12 ">
+    <div className="flex min-h-[240px] w-full items-center justify-center rounded-lg border border-white/25 bg-white/10 p-6 backdrop-blur-sm md:min-h-[430px]">
       <img
         src={image}
         alt="icons"
-        className=" w-full h-full img-drop-shadow md:w-3/5"
+        className="h-auto w-3/5 max-w-[330px] img-drop-shadow md:w-4/5"
         loading="lazy"
       />
     </div>

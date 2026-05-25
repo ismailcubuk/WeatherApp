@@ -32,18 +32,18 @@ export default function DayTimer() {
   }, [sunrise, sunset, timezone]);
 
   return (
-    <div>
-      <div className="flex justify-center items-center">
-        <img src={sun} alt="sun" className="w-20 h-5" />
+    <div className="min-w-0">
+      <div className="flex items-center justify-center">
+        <img src={sun} alt="sun" className="h-5 w-20" />
       </div>
-      <div className="flex gap-3">
-        <div className="flex justify-center items-center">
-          <img src={sunriseIcon} alt="sunriseIcon" className="w-10 h-10" />
-          <p>{formattedSunrise}</p>
+      <div className="mt-2 flex flex-wrap justify-end gap-3 text-sm font-bold text-slate-800">
+        <div className="flex items-center justify-center">
+          <img src={sunriseIcon} alt="sunriseIcon" className="h-9 w-9" />
+          <p className="whitespace-nowrap">{formattedSunrise}</p>
         </div>
-        <div className="flex justify-center items-center">
-          <img src={sunsetIcon} alt="sunsetIcon" className="w-10 h-10" />
-          <p>{formattedSunset}</p>
+        <div className="flex items-center justify-center">
+          <img src={sunsetIcon} alt="sunsetIcon" className="h-9 w-9" />
+          <p className="whitespace-nowrap">{formattedSunset}</p>
         </div>
       </div>
     </div>

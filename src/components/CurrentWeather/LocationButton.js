@@ -12,12 +12,12 @@ export default function LocationButton() {
     <div>
       <FullCityToast/>
       <button
-      className="text-2xl glassmorphism p-2 glassmorphism-btn font-semibold flex mt-10 justify-center items-center "
+      className="glassmorphism-btn mb-5 flex max-w-full items-center justify-center rounded-lg border border-white/45 bg-white/55 px-4 py-2 text-base font-bold text-slate-950 shadow-lg shadow-slate-950/10 transition disabled:cursor-not-allowed disabled:opacity-55 mbl:text-lg"
       onClick={createCityPinned}
       disabled={!city}
     >
-      <img src={pin} alt="pin" className="icons" />
-      <div className="flex-shrink-0">{location || "Select a city"}</div>
+      <img src={pin} alt="pin" className="icons flex-shrink-0" />
+      <div className="truncate">{location || "Select a city"}</div>
     </button>
     </div>
   );

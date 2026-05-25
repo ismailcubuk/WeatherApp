@@ -6,7 +6,7 @@ export default function LocationInfo() {
   const location = [city, country].filter(Boolean).join(", ");
 
   return (
-    <p className=" text-sm font-semibold ml-2 pl-2">
+    <p className="px-2 pb-2 text-sm font-bold uppercase tracking-[0.08em] text-slate-700">
       {location ? `Weather today in ${location}` : "Weather data"}
     </p>
   );

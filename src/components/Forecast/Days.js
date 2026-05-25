@@ -14,9 +14,9 @@ export default function Days() {
   }, [options, today]);
 
   return (
-    <div className="grid grid-flow-col text-center grid-cols-4 text-sm font-bold mbl:text-base ">
+    <div className="grid grid-flow-col grid-cols-4 gap-2 text-center text-xs font-black uppercase tracking-[0.06em] text-slate-700 mbl:text-sm">
       {days.map((day, index) => {
-        return <div key={index}>{day}</div>;
+        return <div className="truncate" key={index}>{day}</div>;
       })}
     </div>
   );

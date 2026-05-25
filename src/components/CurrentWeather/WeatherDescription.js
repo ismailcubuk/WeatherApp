@@ -9,7 +9,7 @@ export default function WeatherDescription() {
   );
   
   return (
-    <div className="text-3xl font-semibold text-center">
+    <div className="mt-2 text-center text-2xl font-bold capitalize text-slate-800 md:text-3xl">
       {weatherDescription}
     </div>
   );

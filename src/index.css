@@ -2,46 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    body {
+        margin: 0;
+        min-width: 320px;
+        background: #07111f;
+        color: #111827;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button,
+    input {
+        font: inherit;
+    }
+}
+
 @layer components {
+    .weather-shell {
+        transition: background-color 500ms ease;
+    }
+
+    .weather-overlay {
+        background:
+            radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.28), transparent 28rem),
+            linear-gradient(135deg, rgba(8, 47, 73, 0.55), rgba(15, 23, 42, 0.22), rgba(245, 158, 11, 0.18));
+        transition: background 500ms ease;
+    }
+
+    .weather-clear .weather-overlay {
+        background:
+            radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.42), transparent 28rem),
+            linear-gradient(135deg, rgba(14, 116, 144, 0.48), rgba(56, 189, 248, 0.18), rgba(251, 191, 36, 0.30));
+    }
+
+    .weather-clouds .weather-overlay {
+        background:
+            radial-gradient(circle at 18% 8%, rgba(226, 232, 240, 0.34), transparent 28rem),
+            linear-gradient(135deg, rgba(30, 41, 59, 0.58), rgba(100, 116, 139, 0.30), rgba(203, 213, 225, 0.18));
+    }
+
+    .weather-rain .weather-overlay,
+    .weather-drizzle .weather-overlay {
+        background:
+            linear-gradient(110deg, rgba(14, 116, 144, 0.16) 0 1px, transparent 1px 18px),
+            radial-gradient(circle at 18% 8%, rgba(186, 230, 253, 0.22), transparent 28rem),
+            linear-gradient(135deg, rgba(3, 7, 18, 0.66), rgba(8, 47, 73, 0.42), rgba(14, 165, 233, 0.18));
+    }
+
+    .weather-thunderstorm .weather-overlay {
+        background:
+            radial-gradient(circle at 22% 12%, rgba(254, 240, 138, 0.25), transparent 14rem),
+            linear-gradient(135deg, rgba(3, 7, 18, 0.74), rgba(49, 46, 129, 0.42), rgba(14, 116, 144, 0.18));
+    }
+
+    .weather-snow .weather-overlay {
+        background:
+            radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.58), transparent 28rem),
+            linear-gradient(135deg, rgba(15, 23, 42, 0.34), rgba(186, 230, 253, 0.28), rgba(241, 245, 249, 0.34));
+    }
+
+    .weather-mist .weather-overlay,
+    .weather-smoke .weather-overlay,
+    .weather-haze .weather-overlay,
+    .weather-dust .weather-overlay,
+    .weather-fog .weather-overlay,
+    .weather-sand .weather-overlay,
+    .weather-ash .weather-overlay,
+    .weather-squall .weather-overlay,
+    .weather-tornado .weather-overlay {
+        background:
+            radial-gradient(circle at 18% 8%, rgba(241, 245, 249, 0.30), transparent 28rem),
+            linear-gradient(135deg, rgba(51, 65, 85, 0.54), rgba(148, 163, 184, 0.30), rgba(226, 232, 240, 0.16));
+    }
+
     .glassmorphism {
         backdrop-filter: blur(30px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(235, 245, 255, 0.58));
         border-radius: 8px;
-        border: none;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        box-shadow: 0 20px 60px rgba(7, 17, 31, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.45);
     }
     .glassmorphism-toast {
         backdrop-filter: blur(30px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
-        border: none;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(230, 242, 255, 0.72));
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        box-shadow: 0 16px 45px rgba(7, 17, 31, 0.18);
     }
     .glassmorphism-nav {
-        border: 1px solid rgba(150, 150, 150, 0.3);
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
-        border: none;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.38);
+        box-shadow: 0 12px 40px rgba(7, 17, 31, 0.16);
+        backdrop-filter: blur(24px);
     }
     .glassmorphism-btn:hover {
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(10, 0, 146, 0.3));
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(194, 231, 255, 0.78));
     }
     .glassmorphism-count {
         backdrop-filter: blur(30px);
-        background: linear-gradient(to bottom, rgba(10, 0, 146, 0.1), rgba(10, 0, 146, 0.5));
-        border: none;
+        background: linear-gradient(145deg, rgba(14, 165, 233, 0.25), rgba(251, 191, 36, 0.55));
+        border: 1px solid rgba(255, 255, 255, 0.46);
+        box-shadow: 0 8px 20px rgba(7, 17, 31, 0.18);
     }
     .weather-line {
         display: flex;
-        padding: 0.5rem;
-        margin: 0.5rem;
-        border-bottom-width: 2px;
-        --tw-border-opacity: 1;
-        border-color: rgb(107 114 128 / var(--tw-border-opacity));
-        justify-content: space-between
+        min-height: 3.75rem;
+        align-items: center;
+        padding: 0.8rem 0.9rem;
+        margin: 0.35rem;
+        border: 1px solid rgba(255, 255, 255, 0.44);
+        background: rgba(255, 255, 255, 0.42);
+        justify-content: space-between;
+        border-radius: 8px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
     }
     .icons {
-        width: 1.5rem;
-        height: 1.5rem;
-        margin-right: 0.25rem;
+        width: 1.35rem;
+        height: 1.35rem;
+        margin-right: 0.45rem;
     }
     .box {
         border-width: 0.125rem;
@@ -93,7 +170,12 @@
         transition: all 1s cubic-bezier(1, 0, 0, 1);
     }
     .img-drop-shadow {
-        --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 1));
+        --tw-drop-shadow: drop-shadow(0 28px 34px rgb(7 17 31 / 0.42));
         filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+    }
+
+    .surface-ring {
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        box-shadow: 0 22px 55px rgba(7, 17, 31, 0.22);
     }
 }

@@ -10,9 +10,9 @@ import LocationInfo from "../../../components/WeatherDetail/LocationInfo";
 
 function WeatherDetail() {
   return (
-    <div className="glassmorphism font-semibold shadow-2xl flex flex-col mb-5 md:mb-0 md:w-1/2 md:justify-around md:h-auto xl:w-5/12 ">
+    <div className="glassmorphism surface-ring flex flex-col p-3 font-semibold md:min-h-[260px]">
       <LocationInfo />
-      <div className="flex justify-between ml-2 pl-2 mr-2 pr-2">
+      <div className="flex items-start justify-between gap-4 px-2 py-3">
         <FeelsLike />
         <DayTimer />
       </div>

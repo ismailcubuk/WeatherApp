@@ -11,13 +11,18 @@ export default function PhoneDropDown() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
+
   useEffect(() => {
-    window.addEventListener("resize", () => {
+    const handleResize = () => {
       if (window.matchMedia("screen and (min-width: 768px)").matches) {
         setIsMenuOpen(false);
       }
-    });
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (
@@ -40,46 +45,73 @@ export default function PhoneDropDown() {
   };
 
   return (
-    <div className="w-16 h-10 rounded-md relative ">
+    <div className="relative h-11 w-16 rounded-lg">
       <button
-        className="flex glassmorphism-nav h-full w-full glassmorphism-btn border-none justify-center gap-2 items-center"
+        type="button"
+        className="flex h-full w-full items-center justify-center gap-2 rounded-lg border border-white/60 bg-white/80 shadow-lg shadow-slate-950/10 backdrop-blur-xl transition hover:bg-white/95"
         onClick={toggleMenu}
         ref={buttonRef}
+        aria-expanded={isMenuOpen}
+        aria-haspopup="menu"
       >
-        <span className="count-animation glassmorphism-count border-none opacity-80 rounded-3xl w-6 h-6 flex justify-around items-center">
+        <span className="count-animation flex h-6 w-6 items-center justify-around rounded-full border border-white/70 bg-gradient-to-br from-amber-200 to-sky-200 text-sm font-black text-slate-900 shadow-md shadow-slate-950/15">
           <span
             className="flex justify-center"
             style={{ "--value": pinnedCity.length }}
           ></span>
         </span>
-        <img src={arrowDown} alt="search-icon" className="h-6 w-2/12" />
+        <img
+          src={arrowDown}
+          alt="search-icon"
+          className={`h-5 w-5 transition-transform ${isMenuOpen ? "rotate-180" : ""}`}
+        />
       </button>
       {isMenuOpen && (
-        <ul className=" border-none relative z-40 w-48 " ref={menuRef}>
+        <div
+          className="absolute left-0 top-full z-50 mt-2 w-[min(88vw,18rem)] overflow-hidden rounded-lg border border-white/70 bg-white/90 p-2 shadow-2xl shadow-slate-950/25 backdrop-blur-2xl"
+          ref={menuRef}
+          role="menu"
+        >
+          <div className="flex items-center justify-between px-2 pb-2 text-xs font-black uppercase tracking-[0.08em] text-slate-500">
+            <span>Pinned cities</span>
+            <span>{pinnedCity.length}/3</span>
+          </div>
+          {pinnedCity.length === 0 && (
+            <div className="rounded-lg bg-slate-900/5 px-3 py-4 text-sm font-semibold text-slate-600">
+              No pinned city
+            </div>
+          )}
           {pinnedCity.map((city) => (
-            <div
-              className="flex justify-around rounded-md glassmorphism-btn glassmorphism-nav backdrop-blur-md border-none p-1"
-              key={city.id}
-            >
+            <div className="group flex items-center rounded-lg transition hover:bg-sky-50" key={city.id}>
               <button
-                className="flex p-2 w-full items-center"
-                onClick={() => PinnedCityLocation(city.name)}
+                type="button"
+                className="flex min-w-0 flex-1 items-center gap-2 px-3 py-2.5 text-sm font-bold text-slate-950"
+                onClick={() => {
+                  PinnedCityLocation(city.name);
+                  setIsMenuOpen(false);
+                }}
+                role="menuitem"
               >
-                <img src={pin} alt="pin" className="w-6 h-6 mr-1" />
-                <div>{city.name}</div>
+                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-slate-950 shadow-sm shadow-slate-950/20">
+                  <img src={pin} alt="pin" className="h-4 w-4 invert" />
+                </span>
+                <div className="truncate">{city.name}</div>
               </button>
               <button
-                className="opacity-40 flex items-center justify-center w-4/12 hover:opacity-100"
+                type="button"
+                className="mr-1 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg opacity-55 transition hover:bg-red-50 hover:opacity-100"
                 onClick={() => {
                   deleteCityPinned(city.id);
                   setShowToast(false);
+                  setIsMenuOpen(false);
                 }}
+                aria-label={`Remove ${city.name}`}
               >
-                <img src={x} alt="pin" className="w-6 h-6" />
+                <img src={x} alt="pin" className="h-5 w-5" />
               </button>
             </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
