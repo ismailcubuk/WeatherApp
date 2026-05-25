@@ -4,7 +4,8 @@ Responsive weather dashboard built with React. It lets users view current weathe
 
 Live demo: [WeatherApp](https://ismailcubuk.github.io/WeatherApp/)
 
-![Preview](./public/images/screenshots/preveiw.png)
+![Preview](./public/images/screenshots/preview.png)
+
 
 ## Features
 
