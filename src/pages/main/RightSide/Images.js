@@ -55,11 +55,11 @@ export default function Images() {
   }
 
   return (
-    <div className="flex min-h-[240px] w-full items-center justify-center rounded-lg border border-white/25 bg-white/10 p-6 backdrop-blur-sm md:min-h-[430px]">
+    <div className="flex min-h-[220px] w-full items-center justify-center rounded-lg border border-white/25 bg-white/10 p-5 backdrop-blur-sm md:h-full md:min-h-0">
       <img
         src={image}
         alt="icons"
-        className="h-auto w-3/5 max-w-[330px] img-drop-shadow md:w-4/5"
+        className="h-auto w-3/5 max-w-[280px] img-drop-shadow md:w-3/5"
         loading="lazy"
       />
     </div>

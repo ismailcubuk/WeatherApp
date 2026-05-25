@@ -11,9 +11,9 @@ function App() {
 
   return (
     <div
-      className={`weather-shell weather-${weatherMain} min-h-screen bg-bg-image bg-cover bg-center text-gray-950`}
+      className={`weather-shell weather-${weatherMain} min-h-screen bg-bg-image bg-cover bg-center text-gray-950 md:h-screen md:overflow-hidden`}
     >
-      <div className="weather-overlay min-h-screen backdrop-blur-[3px]">
+      <div className="weather-overlay min-h-screen backdrop-blur-[3px] md:h-screen md:overflow-hidden">
         <Navbar />
         {error && !isLoading && (
           <div className="mx-auto mt-4 w-[calc(100%-2rem)] max-w-5xl glassmorphism p-3 text-center font-semibold text-red-950">
@@ -28,12 +28,12 @@ function App() {
             </div>
           </div>
         )}
-        <main className="mx-auto flex min-h-[calc(100vh-5rem)] w-full max-w-7xl flex-col gap-5 px-4 pb-5 pt-5 md:px-6 xl:px-8">
-          <section className="grid flex-1 items-center gap-5 md:grid-cols-[1.05fr_0.95fr]">
+        <main className="mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 pb-5 pt-5 md:grid md:h-[calc(100vh-5rem)] md:grid-rows-[minmax(0,0.9fr)_minmax(0,1fr)] md:gap-4 md:px-6 md:py-4 xl:px-8">
+          <section className="grid min-h-0 items-stretch gap-5 md:grid-cols-2 md:gap-4">
             <CurrentWeather />
             <Images />
           </section>
-          <section className="grid gap-5 md:grid-cols-[1.08fr_0.92fr]">
+          <section className="grid min-h-0 items-stretch gap-5 md:grid-cols-2 md:gap-4">
             <WeatherDetail />
             <Forecast />
           </section>
