@@ -2,28 +2,34 @@ import React, { useContext, useEffect, useState } from "react";
 import PinCityContext from "../../contexts/PinCityContext";
 
 export default function FullCityToast() {
-  const { pinnedCity, shows2, setShowToast2, showToast2,setShows2, cityName } =
+  const { shows2, setShowToast2, showToast2, setShows2 } =
     useContext(PinCityContext);
-  const [progress2, setProgress2] = useState();
+  const [progress2, setProgress2] = useState(0);
+
   useEffect(() => {
     if (shows2 === true) {
       setShowToast2(true);
       setProgress2(2000);
       const timeout = setTimeout(() => setShowToast2(false), 2000);
       const timeout2 = setTimeout(() => setShows2(false), 2000);
-      return () => clearTimeout(timeout,timeout2);
+      return () => {
+        clearTimeout(timeout);
+        clearTimeout(timeout2);
+      };
     }
-  }, [ shows2,cityName,pinnedCity,setShows2,setShowToast2 ]);
+  }, [shows2, setShows2, setShowToast2]);
 
   useEffect(() => {
+    if (!showToast2) {
+      return undefined;
+    }
+
     const intervalId = setInterval(() => {
-      setProgress2((prevProgress2) => prevProgress2 - 100);
-      if (progress2 <= 0) {
-        clearInterval(intervalId);
-      }
+      setProgress2((prevProgress2) => Math.max(prevProgress2 - 100, 0));
     }, 100);
+
     return () => clearInterval(intervalId);
-  }, [pinnedCity, progress2]);
+  }, [showToast2]);
 
   return (
     <div

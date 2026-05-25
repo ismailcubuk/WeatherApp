@@ -4,7 +4,7 @@ import PinCityContext from "../../contexts/PinCityContext";
 export default function Toast() {
   const { pinnedCity, shows, setShowToast, showToast } =
     useContext(PinCityContext);
-  const [progress, setProgress] = useState();
+  const [progress, setProgress] = useState(0);
   useEffect(() => {
     if (pinnedCity && pinnedCity.length > 0 && shows) {
       setShowToast(true);
@@ -15,14 +15,16 @@ export default function Toast() {
   }, [pinnedCity, shows, setShowToast]);
 
   useEffect(() => {
+    if (!showToast) {
+      return undefined;
+    }
+
     const intervalId = setInterval(() => {
-      setProgress((prevProgress) => prevProgress - 100);
-      if (progress <= 0) {
-        clearInterval(intervalId);
-      }
+      setProgress((prevProgress) => Math.max(prevProgress - 100, 0));
     }, 100);
+
     return () => clearInterval(intervalId);
-  }, [pinnedCity, progress]);
+  }, [showToast]);
 
   return (
     <div

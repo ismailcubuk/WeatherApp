@@ -10,11 +10,12 @@ export default function DayTimer() {
   const [formattedSunset, setFormattedSunset] = useState("");
   const sunrise = getWeather ? getWeather.sys.sunrise : "";
   const sunset = getWeather ? getWeather.sys.sunset : "";
+  const timezone = getWeather ? getWeather.timezone : 0;
   useEffect(() => {
     const formatDate = (timestampInSeconds) => {
-      const date = new Date(timestampInSeconds * 1000);
-      const hours = date.getHours();
-      const minutes = date.getMinutes();
+      const date = new Date((timestampInSeconds + timezone) * 1000);
+      const hours = date.getUTCHours();
+      const minutes = date.getUTCMinutes();
       const amPm = hours >= 12 ? "pm" : "am";
       const formattedHours = hours % 12 || 12;
       const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
@@ -28,7 +29,7 @@ export default function DayTimer() {
     if (sunset) {
       setFormattedSunset(formatDate(sunset));
     }
-  }, [sunrise, sunset]);
+  }, [sunrise, sunset, timezone]);
 
   return (
     <div>

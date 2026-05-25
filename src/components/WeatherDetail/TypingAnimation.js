@@ -8,15 +8,23 @@ export default function TypingAnimation() {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
   const visibilityDistance = useMemo(
-    () => Math.round(visibility),
+    () => (visibility === "" ? "" : Math.round(visibility)),
     [visibility]
   );
   const words = useMemo(
-    () => [`${weatherCondition}`, `${visibilityDistance} km`],
+    () =>
+      [weatherCondition, visibilityDistance && `${visibilityDistance} km`].filter(
+        Boolean
+      ),
     [weatherCondition, visibilityDistance]
   );
 
   useEffect(() => {
+    if (!words.length) {
+      setText("");
+      return undefined;
+    }
+
     const handleTyping = () => {
       const current = loopNum % words.length;
       const fullText = words[current];
